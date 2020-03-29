@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
 
   readonly ROOT_URL = 'https://jsonplaceholder.typicode.com'
-
+  readonly ROOT_URL2 = 'http://127.0.0.1/api/v1/kiosk-check-in'
   // Interface
   //posts: Observable<Post[]>;
 
@@ -29,7 +29,7 @@ export class AppComponent {
     // Interface
     //this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts');
 
-    this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts', { params } );
+    this.posts = this.http.get(this.ROOT_URL + '/posts', { params } );
   }
 
   createPost() {
@@ -41,6 +41,12 @@ export class AppComponent {
     }
 
     this.newPost = this.http.post(this.ROOT_URL + '/posts', data)
+
+  }
+
+  createTestPost() {
+
+    this.newPost = this.http.post(this.ROOT_URL2, '')
 
   }
 

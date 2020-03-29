@@ -8,11 +8,18 @@
 
 </div>
 
-
+<hr />
 
 
 <button (click)="createPost()"> POST</button>
 
 
-  {{ newPost | posts | json }}
+{{ newPost | async | json }}
+
+<hr />
+
+<button (click)="createTestPost()"> TestPOST</button>
+
+
+{{ newPost | async | json }}
 
