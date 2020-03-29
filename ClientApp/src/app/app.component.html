@@ -1,6 +1,18 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</body>
+<h1>Angular HTTP Basics</h1>
+
+<button (click)="getPosts()"> GETTER </button>
+
+<div *ngFor="let posts of posts | async">
+
+  {{ posts | json }}
+
+</div>
+
+
+
+
+<button (click)="createPost()"> POST</button>
+
+
+  {{ newPost | posts | json }}
+
