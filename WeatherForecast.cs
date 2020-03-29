@@ -1,6 +1,6 @@
 using System;
 
-namespace Front_End
+namespace Test
 {
     public class WeatherForecast
     {

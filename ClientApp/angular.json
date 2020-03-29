@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Front_End": {
+    "Test": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "progress": false,
             "extractCss": true,
             "outputPath": "dist",
@@ -29,6 +30,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -50,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Front_End:build"
+            "browserTarget": "Test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Front_End:build:production"
+              "browserTarget": "Test:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Front_End:build"
+            "browserTarget": "Test:build"
           }
         },
         "test": {
@@ -111,7 +118,7 @@
         }
       }
     },
-    "Front_End-e2e": {
+    "Test-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -119,7 +126,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Front_End:serve"
+            "devServerTarget": "Test:serve"
           }
         },
         "lint": {
@@ -132,5 +139,5 @@
       }
     }
   },
-  "defaultProject": "Front_End"
+  "defaultProject": "Test"
 }

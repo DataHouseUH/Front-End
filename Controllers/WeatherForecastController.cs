@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Front_End.Controllers
+namespace Test.Controllers
 {
     [ApiController]
     [Route("[controller]")]

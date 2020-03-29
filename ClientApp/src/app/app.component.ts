@@ -29,7 +29,7 @@ export class AppComponent {
     // Interface
     //this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts');
 
-    this.posts = this.http.get(this.ROOT_URL + '/posts', { params } );
+    this.posts = this.http.get(this.ROOT_URL + '/posts', { params });
   }
 
   createPost() {
