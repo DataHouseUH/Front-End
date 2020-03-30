@@ -16,23 +16,21 @@ TODO: Link each button press to send an alert to the back
 -->
 
 <mat-grid-list cols="4" rowHeight="fit" style="height: 200px; margin-top: 100px" gutterSize="10px">
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[0]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[1]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[2]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[3]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[4]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[5]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[6]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[7]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[0]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[1]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[2]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[3]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[4]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[5]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[6]}}</button></mat-grid-tile>
+  <mat-grid-tile><button mat-stroked-button class="alert-button">{{Message[7]}}</button></mat-grid-tile>
 </mat-grid-list>
 
-<form class="input-form" onSubmit="return false;">
+<!--<form class="input-form" onSubmit="return false;">
   <mat-form-field>
     <label>
       <input matInput #box (submit)="onEnter(box.value)" placeholder="Type your alert here">
     </label>
   </mat-form-field>
   <button mat-stroked-button (click)="onEnter(box.value)">Add</button>
-</form>
-
-
+</form>-->

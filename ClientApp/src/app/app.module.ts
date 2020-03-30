@@ -16,6 +16,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 
+import { AlertListService } from './alert-list/alert-list.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,7 @@ import { MatTableModule } from '@angular/material/table';
       { path: 'alert', component: AlertListComponent }
     ])
   ],
-  providers: [],
+  providers: [AlertListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,25 +1,46 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { AlertListService } from './alert-list.service';
+import { data } from './alert-list';
 
 @Component({
   selector: 'app-alert-list',
   templateUrl: './alert-list.component.html',
   styleUrls: ['./alert-list.component.css']
 })
+
 export class AlertListComponent implements OnInit {
 
-  presets:any = [];
+  records: data[] = []
+  Message: string[] = []
+  ID: number[] = []
 
-  constructor() {
-    this.presets = ['Front Door Dog'];
+  constructor(private _AlertListService: AlertListService) { }
+
+  ngOnInit() {
+    this.getAlertItems()
   }
 
-  ngOnInit(): void {
+  getAlertItems(): void {
+    this._AlertListService.getAlerts().subscribe(
+      data => {
+        this.records = data
+        console.log(this.records)
+        this.setVariables(this.records)
+        console.log(this.Message)
+        console.log(this.ID)
+      },
+      err => console.error(err)
+    );
   }
 
-  value ='';
-
-  onEnter(value: string) {
-    this.presets.push(value);
+  setVariables(records) {
+    this.Message = records.Message;
+    this.ID = records.AlertCustomMessageID;
   }
-
 }
+
+//// To receibe data, you need to subscribe.
+//this._AlertListService.getAlerts().subscribe((data: any[]) => {
+//  console.log(data);
+//  this.records = data;

@@ -1,0 +1,36 @@
+<!--<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="records">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let records of records[0]">
+      <td>{{ records.Message }}</td>
+      <td>{{ records.AlertCustomMessageID }}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+<ul>
+  <li *ngFor="let message of message; let i = index">
+    <p> {{ ID[i] }} This is ID</p>
+    <p> {{ message }} This is Message</p>
+  </li>
+</ul>
+
+<!--<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="message">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of message; let i = index">
+      <td> {{ ID[i] }}</td>
+      <td>{{ message }}</td>
+    </tr>
+  </tbody>
+</table>-->
