@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-
 
 @Injectable()
 
@@ -19,4 +18,11 @@ export class AlertListService {
       );
   }
 
+  public CreateAlerts(message) {
+    return this.http.post(this.ROOT_URL + '/Insert', { Message: message } )
+  }
+
+  public DeleteAlerts(AlertCustomMessageID) {
+    return this.http.post(this.ROOT_URL + '/Delete', { AlertCustomMessageID: AlertCustomMessageID })
+  }
 }

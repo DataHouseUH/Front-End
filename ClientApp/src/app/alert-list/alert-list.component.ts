@@ -10,7 +10,8 @@ import { data } from './alert-list';
 })
 
 export class AlertListComponent implements OnInit {
-  presets:any = [];
+
+  presets: any = [];
   input: string = '';
   error: string;
   changeButton0: boolean;
@@ -25,6 +26,9 @@ export class AlertListComponent implements OnInit {
   records: data[] = []
   Message: string[] = []
   ID: number[] = []
+
+ 
+
 
   constructor(private _AlertListService: AlertListService) { }
 
@@ -47,26 +51,41 @@ export class AlertListComponent implements OnInit {
 
 
   addAlert(value: string) {
-    if(this.presets.length === 8){
+    if (this.ID.length >= 8) {
       this.error = 'Alerts are full.'
-    } else if(value !== '') {
+    } else if (value !== '') {
       this.error = null;
-      this.presets.push(value);
+
+      this._AlertListService.CreateAlerts(value).subscribe(
+        data => {
+          console.log("Post Request is Sucessful", data);
+        },
+        error => {
+          console.log("Error", error);
+        }
+      )
+
       this.input = null;
     }
-  setVariables(records) {
-    this.Message = records.Message;
-    this.ID = records.AlertCustomMessageID;
-  }
 
-  deleteAlert(x) {
-    console.log(this.presets);
-    this.error = null;
-    if (x > -1) {
-      this.presets.splice(x, 1);
+  }
+    setVariables(records) {
+      this.Message = records.Message;
+      this.ID = records.AlertCustomMessageID;
+    }
+
+    deleteAlert(value: number) {
+      this._AlertListService.DeleteAlerts(value).subscribe(
+        data => {
+          console.log("Delete Request is Sucessful", data);
+        },
+        error => {
+          console.log("Error", error);
+        }
+      )
     }
   }
-}
+
 
 //// To receibe data, you need to subscribe.
 //this._AlertListService.getAlerts().subscribe((data: any[]) => {
