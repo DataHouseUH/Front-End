@@ -15,6 +15,10 @@ import { AlertListComponent } from './alert-list/alert-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AlertListService } from './alert-list/alert-list.service';
 
@@ -33,6 +37,9 @@ import { AlertListService } from './alert-list/alert-list.service';
     MatGridListModule,
     MatInputModule,
     MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
@@ -40,7 +47,8 @@ import { AlertListService } from './alert-list/alert-list.service';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'alert', component: AlertListComponent }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [AlertListService],
   bootstrap: [AppComponent]

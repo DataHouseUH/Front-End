@@ -1,8 +1,22 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 import { Post } from './post';
 import { Observable } from 'rxjs';
+
+const material = [
+  MatGridListModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule
+];
 
 @Component({
   selector: 'app-root',
