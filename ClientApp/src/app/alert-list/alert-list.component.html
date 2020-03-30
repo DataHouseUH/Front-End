@@ -15,24 +15,75 @@ TODO: Link each button press to send an alert to the back
       Make it pretty
 -->
 
+
 <mat-grid-list cols="4" rowHeight="fit" style="height: 200px; margin-top: 100px" gutterSize="10px">
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[0]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[1]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[2]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[3]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[4]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[5]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[6]}}</button></mat-grid-tile>
-  <mat-grid-tile><button mat-stroked-button class="alert-button">{{presets[7]}}</button></mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton0=true" (mouseout)="changeButton0=false" mat-stroked-button class="alert-button">
+      {{presets[0]}}
+      <button mat-button (click)="deleteAlert(0)"><mat-icon *ngIf="changeButton0">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton1=true" (mouseout)="changeButton1=false" mat-stroked-button class="alert-button">
+      {{presets[1]}}
+      <button mat-button (click)="deleteAlert(1)"><mat-icon *ngIf="changeButton1">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton2=true" (mouseout)="changeButton2=false" mat-stroked-button class="alert-button">
+      {{presets[2]}}
+      <button mat-button (click)="deleteAlert(2)"><mat-icon *ngIf="changeButton2">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton3=true" (mouseout)="changeButton3=false" mat-stroked-button class="alert-button">
+      {{presets[3]}}
+      <button mat-button (click)="deleteAlert(3)"><mat-icon *ngIf="changeButton3">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton4=true" (mouseout)="changeButton4=false" mat-stroked-button class="alert-button">
+      {{presets[4]}}
+      <button mat-button (click)="deleteAlert(4)"><mat-icon *ngIf="changeButton4">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton5=true" (mouseout)="changeButton5=false" mat-stroked-button class="alert-button">
+      {{presets[5]}}
+      <button mat-button (click)="deleteAlert(5)"><mat-icon *ngIf="changeButton5">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton6=true" (mouseout)="changeButton6=false" mat-stroked-button class="alert-button">
+      {{presets[6]}}
+      <button mat-button (click)="deleteAlert(6)"><mat-icon *ngIf="changeButton6">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <button (mouseover)="changeButton7=true" (mouseout)="changeButton7=false" mat-stroked-button class="alert-button">
+      {{presets[7]}}
+      <button mat-button (click)="deleteAlert(7)"><mat-icon *ngIf="changeButton7">close</mat-icon></button>
+    </button>
+  </mat-grid-tile>
 </mat-grid-list>
 
-<form class="input-form" onSubmit="return false;">
+<p>{{error}}</p>
+
+
+<form class="input-form">
   <mat-form-field>
     <label>
-      <input matInput #box (submit)="onEnter(box.value)" placeholder="Type your alert here">
+      <input matInput [(ngModel)]="input" name="input" #box (submit)="addAlert(box.value)" placeholder="Type your alert here">
     </label>
   </mat-form-field>
-  <button mat-stroked-button (click)="onEnter(box.value)">Add</button>
+  <button mat-stroked-button (click)="addAlert(box.value)">Add</button>
 </form>
-
 

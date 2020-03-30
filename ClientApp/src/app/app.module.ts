@@ -15,6 +15,10 @@ import { AlertListComponent } from './alert-list/alert-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,9 @@ import { MatTableModule } from '@angular/material/table';
     MatGridListModule,
     MatInputModule,
     MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
@@ -38,7 +45,8 @@ import { MatTableModule } from '@angular/material/table';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'alert', component: AlertListComponent }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
