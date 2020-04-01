@@ -1,0 +1,45 @@
+<h2>Please sign-in by entering the following:</h2>
+
+<div class="container">
+  <form formGroup="checkinForm" (ngSubmit)="onSubmit()">
+    <!-- Last Name -->
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" placeholder = "Your last name"  class="form-control" id="lastname" formControlName="lastName" required>
+      <div class="alert alert-danger">    <!-- TODO: Implement error message if input has been left blank after submission -->
+        This field is required
+      </div>
+    </div>
+
+    <!-- First Name -->
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" placeholder = "Your first name" class="form-control" id="firstname" formControlName="firstName" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="areaCode">Phone Number</label>
+      <input type="text" style="width:10%" class="form-control" placeholder="+1" maxlength="3" formControlName="areaCode1" id="areaCode" required>
+      <input type="text" style="width:15%" class="form-control" placeholder="( x x x )" maxlength="3" formControlName="areaCode2" id="areaCode2" required>
+      <input type="text" style="width:15%" class="form-control" placeholder="x x x" maxlength="3" formControlName="phone3" id="phone3" required>
+      <input type="text" style="width:15%" class="form-control" placeholder="x x x x" maxlength="4" id="phone4" formControlName="phone4" required>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="text" class="form-control" placeholder="example@example.com" formControlName="email" id="email" required>
+    </div>
+
+    <!-- Pet Microchip-->
+    <div class="form-group">
+      <label for="microchip">Pet Microchip ID</label>
+      <input type="text" class="form-control" formControlName="MicoID" id="microchip">
+    </div>
+
+    <!-- Submit form -->
+    <!---button type="submit" class="btn btn-success">Submit<!/button-->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
