@@ -67,17 +67,13 @@ export class OwnerFormComponent {
     this._OwnerFormService.isAuthorized(lastname, firstname, MicroID, email, phone).subscribe(
       data => {
         this.records = data
-        console.log(this.records)
         this.setVariables(this.records)
-        console.log(this.Error)
-        console.log(this.UserID)
+        if (this.Status[0] == 1) {
+          this.router.navigate(['/qualify']);
+        } else this.router.navigate(['/noqualify']);
       },
       err => console.error(err)
     );
-
-    if (this.Status[0] == 1) {
-      this.router.navigate(['/qualify']);
-    } else this.router.navigate(['/noqualify']);
     //if(firstname!=="" && lastname!=="" && phone!=="")
     //{
     //  this.router.navigate(['/search']);
