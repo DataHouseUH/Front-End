@@ -14,18 +14,26 @@ export class FrontDisplayComponent implements AfterViewInit {
   displayedColumns: string[] = ['phone4', 'firstname', 'status'];
   // database: HttpDatabase | null;   /* Database from kiosk */
   data: KioskInfo[] = [];   /* Data to use */
-  data2: KioskInfo[] = []; 
-  phone4: number[] = [];
-  lastInitial: CharacterData[] = [];
-  firstname: string[] = [];
-  status: string[] = [];
+  DisplayID: number[] = [];
+  UserDisplayName: string[] = [];
+  StatusName: string[] = [];
+  HowManyLoops: any;
   constructor(private _FrontDisplayService: FrontDisplayService) { }
 
 
 
 
   ngOnInit() {
-    this.getAlertItems()
+    this.getAlertItems();
+    this.HowManyLoops = setInterval(() => {
+      this.getAlertItems();
+    }, 5000);
+  }
+
+  ngOnDestroy() {
+    if (this.HowManyLoops) {
+      clearInterval(this.HowManyLoops);
+    }
   }
 
   getAlertItems(): void {
@@ -40,10 +48,9 @@ export class FrontDisplayComponent implements AfterViewInit {
   }
 
   setVariables(records) {
-    this.phone4 = records.PhoneNumber;
-    this.lastInitial = records.LastName;
-    this.firstname = records.FirstName;
-    this.status = records.Status;
+    this.DisplayID = records.DisplayID;
+    this.UserDisplayName = records.UserDisplayName;
+    this.StatusName = records.StatusName;
   }
 
   resultsLength = 0;
@@ -56,10 +63,9 @@ export class FrontDisplayComponent implements AfterViewInit {
 }
 
 export interface KioskInfo {
-  phone4: number;
-  lastInitial: CharacterData;
-  firstname: string;
-  status: string;
+  DisplayID: number;
+  UserDisplayName: string;
+  StatusName: string;
 }
 
 /* Database from kiosk to use for the front display queue */

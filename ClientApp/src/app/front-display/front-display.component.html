@@ -1,18 +1,18 @@
-<table class='table table-striped' aria-labelledby="tableLabel">
-  <thead>
-    <tr>
-      <th># Number</th>
-      <th>L.I</th>
-      <th>First Name</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let phone4 of phone4; let i = index">
-      <td>{{ phone4 }}</td>
-      <td>{{ lastInitial[i] }}</td>
-      <td>{{ firstname[i] }}</td>
-      <td>{{ status[i] }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Last, First</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let DisplayID of DisplayID; let i = index">
+        <td>{{ DisplayID }}
+        <td>{{ UserDisplayName[i] }}</td>
+        <td>{{ StatusName[i] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

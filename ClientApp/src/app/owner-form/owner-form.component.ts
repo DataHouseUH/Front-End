@@ -57,17 +57,13 @@ export class OwnerFormComponent {
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
 
-    console.log(firstname);
-    console.log(lastname);
-    console.log(phone);
-    console.log(email);
-    console.log(MicroID);
-
     // Hit Database
     this._OwnerFormService.isAuthorized(lastname, firstname, MicroID, email, phone).subscribe(
       data => {
         this.records = data
         this.setVariables(this.records)
+        console.log(data)
+
         if (this.Status[0] == 1) {
           this.router.navigate(['/qualify']);
         } else this.router.navigate(['/noqualify']);
@@ -81,8 +77,8 @@ export class OwnerFormComponent {
   }
 
   setVariables(records) {
-    this.Status = records.status;
-    this.Error = records.error;
+    this.Status = records.Status;
+    this.Error = records.Error;
     this.UserID = records.UserID;
   }
 
