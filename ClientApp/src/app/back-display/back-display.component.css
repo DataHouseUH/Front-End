@@ -2,11 +2,24 @@ table {
   width: 100%;
 }
 
-.example-card {
-  max-width: 400px;
+.alert-card {
+  margin: 20px; /* or inline-flex */
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+/*This is for the cards to display vertical*/
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+/*vh is view high*/
+}
+
+.flex-parent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.overflow-auto{
+    overflow: auto;
 }

@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { TestComponent } from './test/home.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AlertListComponent } from './alert-list/alert-list.component';
 import { OwnerFormComponent } from './owner-form/owner-form.component';
@@ -59,7 +60,8 @@ import { BackDisplayService } from './back-display/back-display.service';
       { path: 'back', component: BackDisplayComponent }
     ]),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [
     AlertListService,

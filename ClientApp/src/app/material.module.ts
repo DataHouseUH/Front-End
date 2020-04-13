@@ -12,6 +12,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
 @NgModule({
   imports: [
     MatTableModule,
@@ -22,7 +24,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatSliderModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ScrollingModule
   ],
   exports: [
     MatTableModule,
@@ -33,7 +36,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatSliderModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ScrollingModule
   ]
 })
 
