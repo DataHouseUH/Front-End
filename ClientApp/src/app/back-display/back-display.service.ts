@@ -26,4 +26,15 @@ export class BackDisplayService {
       Is_Released: Is_Released
     })
   }
+
+  public geAlertDisplay() {
+    return this.http.post(this.ROOT_URL + '/Alert', '')
+      .pipe(map((data: any) => data.data),
+        catchError(error => { return throwError('Its a Trap!') })
+      );
+  }
+
+  public DeleteAlerts(AlertID) {
+    return this.http.post(this.ROOT_URL + '/UpdateAlert', { AlertID: AlertID })
+  }
 }

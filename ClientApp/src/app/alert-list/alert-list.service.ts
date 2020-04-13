@@ -25,4 +25,12 @@ export class AlertListService {
   public DeleteAlerts(AlertCustomMessageID) {
     return this.http.post(this.ROOT_URL + '/Delete', { AlertCustomMessageID: AlertCustomMessageID })
   }
+
+  public UpdateAlerts(AlertCustomMessageID, message) {
+    return this.http.post(this.ROOT_URL + '/Update', { AlertCustomMessageID: AlertCustomMessageID, Message: message })
+  }
+
+  public SubmitAlerts(message) {
+    return this.http.post(this.ROOT_URL + '/Submit', { Message: message })
+  }
 }

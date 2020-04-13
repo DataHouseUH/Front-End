@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
@@ -25,7 +26,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatSliderModule,
     MatCardModule,
     MatCheckboxModule,
-    ScrollingModule
+    ScrollingModule,
+    MatDialogModule
   ],
   exports: [
     MatTableModule,
@@ -37,7 +39,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatSliderModule,
     MatCardModule,
     MatCheckboxModule,
-    ScrollingModule
+    ScrollingModule,
+    MatDialogModule
   ]
 })
 

@@ -13,7 +13,7 @@ import { TestComponent } from './test/home.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AlertListComponent } from './alert-list/alert-list.component';
+import { AlertListComponent, AlertListPopUpComponent } from './alert-list/alert-list.component';
 import { OwnerFormComponent } from './owner-form/owner-form.component';
 import { IfPrequalComponent } from './if-prequal/if-prequal.component';
 import { NotPrequalComponent } from './not-prequal/not-prequal.component';
@@ -37,6 +37,7 @@ import { BackDisplayService } from './back-display/back-display.service';
     FetchDataComponent,
     TestComponent,
     AlertListComponent,
+    AlertListPopUpComponent,
     OwnerFormComponent,
     IfPrequalComponent,
     NotPrequalComponent,

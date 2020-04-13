@@ -1,0 +1,49 @@
+.Title {
+  background-color: #FBFBFB;
+  height: 5vh;
+}
+
+.Form {
+  background-color: #F1F1F1 !important;
+/*background-color: #646464;*/
+}
+
+.NameBox {
+  margin: 10px;
+  width: 50%;
+  background-color: transparent;
+  border-color: #A1834D;
+
+}
+
+.PhoneBox {
+  margin: 10px;
+  width: 20%;
+  background-color: transparent;
+  border-color: #A1834D;
+}
+
+.EmailBox {
+  margin: 10px;
+  width: 66%;
+  background-color: transparent;
+  border-color: #A1834D;
+}
+
+.MicroChipBox {
+  margin: 10px;
+  width: 66%;
+  background-color: transparent;
+  border-color: #A1834D;
+}
+
+.mat-form-field-appearance-outline{
+  color: red;
+}
+.SubmitButton {
+  justify-content: center;
+  background-color: #55411C;
+  color: white;
+}
+
+

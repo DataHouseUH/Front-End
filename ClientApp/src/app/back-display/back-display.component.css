@@ -3,7 +3,8 @@ table {
 }
 
 .alert-card {
-  margin: 20px; /* or inline-flex */
+  margin: 20px;
+  padding: 0px;
 }
 
 /*This is for the cards to display vertical*/
@@ -11,7 +12,7 @@ table {
   display: flex;
   flex-direction: column;
   height: 50vh;
-/*vh is view high*/
+  /*vh is view high*/
 }
 
 .flex-parent{
@@ -20,6 +21,34 @@ table {
   justify-content: center;
 }
 
-.overflow-auto{
-    overflow: auto;
+.overflow-auto {
+  overflow: auto;
+  width: 25%;
+}
+
+table {
+  width: 100%;
+}
+
+.container {
+  background-color: #F1F1F1;
+}
+
+.Table {
+  border-right-color: black;
+  border-right-style: solid;
+  margin-right: 50px;
+}
+
+.text-center {
+  justify-content: center;
+}
+
+.PopUpX {
+  justify-content: right;
+}
+
+.Time {
+  justify-content: left;
+  font-weight: bolder;
 }

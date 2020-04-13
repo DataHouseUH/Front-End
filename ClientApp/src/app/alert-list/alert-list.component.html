@@ -1,17 +1,31 @@
 <div class="flex-parent">
-  <div fxLayout="column">
+  <div fxLayout="column" class="container">
     <div>
-      <div fxLayout="row">
-        <div>
-          Hello
-        </div>
-        <div>
-          Hello
+      <b>Please select alert:</b>
+      <div fxLayout="row wrap">
+        <div *ngFor="let Message of Message; let i = index" class="CustomAlert">
+          <div class="CustomAlertBox">
+            <button mat-button (click)="PopulateMessageAlert(Message)">
+              {{Message}}
+            </button>
+            <button mat-button (click)="openDialog(Message, ID[i])"><mat-icon [ngStyle]="{'color':'white'}">edit</mat-icon></button>
+          </div>
         </div>
       </div>
     </div>
+
     <div>
-      Hello
+      <mat-form-field class="AlertBox" appearance="outline">
+        <mat-label>What kind of alert would you like to send?</mat-label>
+        <textarea matInput placeholder="Owner A came to pick up Pet B" [(ngModel)]="AlertMessage">{{AlertMessage}}</textarea>
+      </mat-form-field>
+    </div>
+
+    <div style="align-self: center">
+      <div class="SubmitButton">
+        <button mat-button (click)="submitAlert(AlertMessage)">Submit</button>
+      </div>
     </div>
   </div>
 </div>
+

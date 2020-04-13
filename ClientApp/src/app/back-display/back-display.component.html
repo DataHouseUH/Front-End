@@ -1,55 +1,62 @@
+<div class="container">
+  <div fxLayout="row" class="text-center">
+    <div class="Table">
+      <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>
+          <tr>
+            <th>Last, First</th>
+            <th>Pet ID</th>
+            <th>Arrived</th>
+            <th>Inspected</th>
+            <th>Release</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]">
+            <td>{{ UserDisplayName[i] }}
+            <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
+            <td>
+              <mat-checkbox [(ngModel)]=Is_Arrived[i]
+                            (change)="UpdateIs_Arrived($event, i)">
+              </mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox [(ngModel)]=Is_Inspected[i]
+                            (change)="UpdateIs_Inspected($event, i)">
+              </mat-checkbox>
+            </td>
+            <td>
+              <mat-checkbox [(ngModel)]=Is_Released[i]
+                            (change)="UpdateIs_Released($event, i)">
+              </mat-checkbox>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <div class="overflow-auto">
+      <b>Alerts </b>
+      <div class="flex-container">
+        <div *ngFor="let AlertID of AlertID; let i = index" class="alert-card">
+          <mat-card>
+            <mat-card-header class="Time">
 
+              <div class="Time">
+                {{TimeCreated[i] | date:'shortTime'}}
+              </div>
+              <div class="PopUpX">
+                <button mat-button class="PopUpX" (click)="onClick(AlertID)">X</button>
+              </div>
 
-<div class="flex-parent">
-  <div>
-    <table class='table table-striped' aria-labelledby="tableLabel">
-      <thead>
-        <tr>
-          <th>Last, First</th>
-          <th>Pet ID</th>
-          <th>Arrived</th>
-          <th>Inspected</th>
-          <th>Release</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]">
-          <td>{{ UserDisplayName[i] }}
-          <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
-          <td>
-            <mat-checkbox [(ngModel)]=Is_Arrived[i]
-                          (change)="UpdateIs_Arrived($event, i)">
-            </mat-checkbox>
-          </td>
-          <td>
-            <mat-checkbox [(ngModel)]=Is_Inspected[i]
-                          (change)="UpdateIs_Inspected($event, i)">
-            </mat-checkbox>
-          </td>
-          <td>
-            <mat-checkbox [(ngModel)]=Is_Released[i]
-                          (change)="UpdateIs_Released($event, i)">
-            </mat-checkbox>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="overflow-auto">
-    <!--<cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">-->
-    <div class="flex-container">
-      <div *ngFor="let dataSource of dataSource" class="alert-card">
-        <mat-card>
-          <mat-card-header>
-            <button mat-raised-button>X</button>
-          </mat-card-header>
-          <mat-card-content>
-            {{dataSource.name}}
-          </mat-card-content>
-        </mat-card>
+            </mat-card-header>
+            <mat-card-content>
+              {{Message[i]}}
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
     </div>
-    <!--</cdk-virtual-scroll-viewport>-->
+
   </div>
 </div>

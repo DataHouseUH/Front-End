@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AlertListService } from './alert-list.service';
 import { data } from './alert-list';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-alert-list',
@@ -10,35 +11,23 @@ import { data } from './alert-list';
 
 export class AlertListComponent implements OnInit {
 
-  presets: any = [];
-  input: string = '';
+  constructor(private _AlertListService: AlertListService, public dialog: MatDialog) { }
+
   error: string;
-  changeButton0: boolean;
-  changeButton1: boolean;
-  changeButton2: boolean;
-  changeButton3: boolean;
-  changeButton4: boolean;
-  changeButton5: boolean;
-  changeButton6: boolean;
-  changeButton7: boolean;
-
-  records: data[] = []
-  Message: string[] = []
-  ID: number[] = []
-
- 
-
-
-  constructor(private _AlertListService: AlertListService) { }
+  AlertMessage: string;
+  records: data[];
+  Message: string[] = [];
+  ID: number[] = [];
 
   ngOnInit() {
-    this.getAlertItems()
+    this.getAlertItems();
   }
 
   getAlertItems(): void {
     this._AlertListService.getAlerts().subscribe(
       data => {
         this.records = data
+        console.log(this.records)
         this.setVariables(this.records)
       },
       err => console.error(err)
@@ -46,53 +35,83 @@ export class AlertListComponent implements OnInit {
   }
 
 
-  async addAlert(value: string) {
-    if (this.ID.length >= 8) {
-      this.error = 'Alerts are full.'
-    } else if (value.trim() !== '') {
-      this.error = null;
-
-      console.log(this.input + 'here');
-      await this._AlertListService.CreateAlerts(value).toPromise();
-      this.getAlertItems();
-
-      //await this._AlertListService.CreateAlerts(value).subscribe(
-      //    data => {
-      //      console.log("Post Request is Sucessful", data);
-      //    },
-      //    error => {
-      //      console.log("Error", error);
-      //    }
-      //  )
-      //}
-    }
-  }
 
   setVariables(records) {
     this.Message = records.Message;
     this.ID = records.AlertCustomMessageID;
+
+    if (this.Message[this.Message.length - 1] != "+") {
+      this.Message.push("+");
+      this.ID.push(-1);
+    }
+  }
+
+  //Prepopulate Message
+  PopulateMessageAlert(Message: string) {
+    this.AlertMessage = Message;
+  }
+
+  // OpenDialog()
+  openDialog(Message: string, ID: number): void {
+    const dialogRef = this.dialog.open(AlertListPopUpComponent, {
+      width: '50%',
+      data: { Message: Message, ID: ID },
+      panelClass: 'myapp-no-padding-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getAlertItems();
+    });
+  }
+
+  async submitAlert(value: string) {
+    await this._AlertListService.SubmitAlerts(value).toPromise();
+    console.log(value);
+  }
+}
+
+//// PopUp Stuff
+@Component({
+  selector: 'app-alert-list',
+  templateUrl: './alert-list-pop-up.component.html',
+  styleUrls: ['./alert-list.component.css']
+})
+export class AlertListPopUpComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<AlertListPopUpComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private _AlertListService: AlertListService) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   async deleteAlert(value: number) {
+    console.log(value);
     await this._AlertListService.DeleteAlerts(value).toPromise();
-    this.getAlertItems();
-    //this._AlertListService.DeleteAlerts(value).subscribe(
-    //  data => {
-    //    console.log("Delete Request is Sucessful", data);
-    //  },
-    //  error => {
-    //    console.log("Error", error);
-    //  }
-    //)
-
-    // Get Alerts again
-   
-
-  }
+    this.data.Message = "";
   }
 
+  async addAlert(value: string) {
+  if (value.trim() !== '') {
+    await this._AlertListService.CreateAlerts(value).toPromise();
+    this.data.Message = value;
+    }
+  }
 
-//// To receibe data, you need to subscribe.
-//this._AlertListService.getAlerts().subscribe((data: any[]) => {
-//  console.log(data);
-//  this.records = data;
+  async updateAlert(Message: string, ID: number) {
+    console.log(Message, ID);
+    if (Message.trim() !== '') {
+      await this._AlertListService.UpdateAlerts(ID, Message).toPromise();
+      this.data.Message = Message;
+    }
+  }
+}
+
+
+export interface DialogData {
+  Message: string;
+  ID: number;
+}

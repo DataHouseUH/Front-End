@@ -16,16 +16,51 @@
   margin-left: 130px;
 }*/
 
-
-/*This is for the cards to display vertical*/
-.flex-child {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  /*vh is view high*/
-}
-
 .flex-parent {
   display: flex;
+  justify-content: center;
+}
+
+.CustomAlert{
+  margin: 20px;
+}
+
+.CustomAlertBox{
+  background-color: #55411C;
+  color: white;
+}
+
+.AlertBox {
+  margin: 10px;
+  width: 100%;
+}
+
+.SubmitButton {
+  justify-content: center;
+  background-color: #55411C;
+  color: white;
+}
+
+.container {
+  background-color: #F1F1F1;
+}
+
+/*For pop up*/
+.CustomAlertPopUpBox {
+  background-color: #55411C;
+  color: white;
+  margin: 5px;
+}
+
+.PopUpInput {
+  margin: 5px;
+}
+
+.PopUpX {
+  float: right;
+  margin: 5px;
+}
+
+.PopUpButtons {
   justify-content: center;
 }

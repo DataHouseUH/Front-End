@@ -1,3 +1,5 @@
+import { Time } from "@angular/common";
+
 export interface Tile {
   color: string;
   cols: number;
@@ -14,4 +16,11 @@ export interface BackDisplayTbl {
   Is_Inspected: boolean;
   Is_Released: boolean;
   Colour: string;
+}
+
+export interface AlertTbl {
+  AlertID: number;
+  BackDisplayID: number;
+  Message: string;
+  TimeCreated: Time;
 }

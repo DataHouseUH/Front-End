@@ -1,12 +1,12 @@
-<h2>Please sign-in by entering the following:</h2>
-
 <div class="container">
-  <form formGroup="checkinForm" (ngSubmit)="onSubmit()">
+  <h2>Please sign-in by entering the following:</h2>
+  <form [formGroup]="checkinForm" (ngSubmit)="onSubmit()">
     <!-- Last Name -->
     <div class="form-group">
       <label for="lastname">Last Name</label>
-      <input type="text" placeholder = "Your last name"  class="form-control" id="lastname" formControlName="lastName" required>
-      <div class="alert alert-danger">    <!-- TODO: Implement error message if input has been left blank after submission -->
+      <input type="text" placeholder="Your last name" class="form-control" id="lastname" formControlName="lastName" required>
+      <div class="alert alert-danger">
+        <!-- TODO: Implement error message if input has been left blank after submission -->
         This field is required
       </div>
     </div>
@@ -14,7 +14,7 @@
     <!-- First Name -->
     <div class="form-group">
       <label for="firstname">First Name</label>
-      <input type="text" placeholder = "Your first name" class="form-control" id="firstname" formControlName="firstName" required>
+      <input type="text" placeholder="Your first name" class="form-control" id="firstname" formControlName="firstName" required>
     </div>
 
     <!-- Phone Number -->
