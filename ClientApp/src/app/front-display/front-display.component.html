@@ -1,18 +1,33 @@
-<div class="container">
-  <table class='table table-striped' aria-labelledby="tableLabel">
-    <thead>
-      <tr>
-        <th>No.</th>
-        <th>Last, First</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let DisplayID of DisplayID; let i = index">
-        <td>{{ DisplayID }}
-        <td>{{ UserDisplayName[i] }}</td>
-        <td>{{ StatusName[i] }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="module">
+  <div class="container">
+    <div fxLayout="row" class="Logo">
+      <div class="Logo2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <b>Animal Quarantine Airport Station</b>
+        </div>
+        <div>
+          Hawaii Department of Agriculture
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered" aria-labelledby="tableLabel">
+      <thead>
+        <tr class="TableHead">
+          <th>No.</th>
+          <th>Last, First</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let DisplayID of DisplayID; let i = index" class="TableBody">
+          <td>{{ DisplayID }}
+          <td>{{ UserDisplayName[i] }}</td>
+          <td>{{ StatusName[i] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

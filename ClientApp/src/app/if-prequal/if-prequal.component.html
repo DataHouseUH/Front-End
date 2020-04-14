@@ -1,5 +1,66 @@
-<h2>Aloha,</h2> <!-- TODO: Implement owner first name -->
 
-<p>You are now checked in. We will notify you once your pet is ready. Mahalo for waiting.</p>
+  <div class="module">
+    <div class="container">
+      <div fxLayout="column">
 
-<!-- TODO: Implement phone number animation -->
+        <div fxLayout="row" class="Logo">
+          <div class="Logo2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
+          </div>
+          <div fxLayout="column">
+            <div>
+              State of Hawaii
+            </div>
+            <div>
+              <b>Animal Industry Division</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="Name">
+          Aloha, {{UserDisplayName[0]}}
+        </div>
+
+        <div class="Message">
+          You are now checked in. We will call you when your pet is ready. <br />
+          Mahalo for waiting.
+        </div>
+
+        <div fxLayout="row" class="Queuing">
+          <div fxLayout="column">
+            <div>
+              Queue Number
+            </div>
+            <div class="Number">
+              {{DisplayID[0]}}
+            </div>
+            <div>
+              * (Last 4 digits of your phone number)
+            </div>
+          </div>
+
+          <div fxLayout="column" class="Front-Display">
+            <div>
+              <img src="assets/img/Front-Display.PNG" alt="Display" style="width:50%;height:50%;">
+            </div>
+            <div>
+              * As shown on display
+            </div>
+          </div>
+        </div>
+
+        <div class="Ending">
+          <div>
+            Exiting in {{timer}} seconds ...
+          </div>
+        </div>
+        <div class="Ending">
+          <div>
+            <button mat-button class="SubmitButton" (click)="addMoretime()">Need more time</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

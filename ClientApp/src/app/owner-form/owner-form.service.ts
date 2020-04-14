@@ -18,9 +18,9 @@ export class OwnerFormService {
   //    );
   //}
 
-  public isAuthorized(_message, _firstname, _microchipID, _email, _phonenumber) {
+  public isAuthorized(_lastname, _firstname, _microchipID, _email, _phonenumber) {
     return this.http.post(this.ROOT_URL + '/View', {
-      LastName: _message,
+      LastName: _lastname,
       FirstName: _firstname,
       MicrochipID: _microchipID,
       Email: _email,
@@ -30,7 +30,11 @@ export class OwnerFormService {
     );
   }
 
+  UserID: number = 5;
+  Is_Qualified: boolean = false;
   //public DeleteAlerts(AlertCustomMessageID) {
   //  return this.http.post(this.ROOT_URL + '/Delete', { AlertCustomMessageID: AlertCustomMessageID })
   //}
 }
+
+

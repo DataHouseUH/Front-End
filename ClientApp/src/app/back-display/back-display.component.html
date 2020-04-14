@@ -1,61 +1,169 @@
-<div class="container">
-  <div fxLayout="row" class="text-center">
-    <div class="Table">
-      <table class='table table-striped' aria-labelledby="tableLabel">
-        <thead>
-          <tr>
-            <th>Last, First</th>
-            <th>Pet ID</th>
-            <th>Arrived</th>
-            <th>Inspected</th>
-            <th>Release</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]">
-            <td>{{ UserDisplayName[i] }}
-            <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
-            <td>
-              <mat-checkbox [(ngModel)]=Is_Arrived[i]
-                            (change)="UpdateIs_Arrived($event, i)">
-              </mat-checkbox>
-            </td>
-            <td>
-              <mat-checkbox [(ngModel)]=Is_Inspected[i]
-                            (change)="UpdateIs_Inspected($event, i)">
-              </mat-checkbox>
-            </td>
-            <td>
-              <mat-checkbox [(ngModel)]=Is_Released[i]
-                            (change)="UpdateIs_Released($event, i)">
-              </mat-checkbox>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="overflow-auto">
-      <b>Alerts </b>
-      <div class="flex-container">
-        <div *ngFor="let AlertID of AlertID; let i = index" class="alert-card">
-          <mat-card>
-            <mat-card-header class="Time">
-
-              <div class="Time">
-                {{TimeCreated[i] | date:'shortTime'}}
-              </div>
-              <div class="PopUpX">
-                <button mat-button class="PopUpX" (click)="onClick(AlertID)">X</button>
-              </div>
-
-            </mat-card-header>
-            <mat-card-content>
-              {{Message[i]}}
-            </mat-card-content>
-          </mat-card>
+<!--<div class="module">
+  <div class="container">
+    <div fxLayout="row" class="Logo">
+      <div class="Logo2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <b>Animal Quarantine Airport Station</b>
+        </div>
+        <div>
+          Hawaii Department of Agriculture
         </div>
       </div>
+    </div>
+    <table class="table table-bordered" aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>Last, First</th>
+          <th>Pet ID</th>
+          <th>Arrived</th>
+          <th>Inspected</th>
+          <th>Release</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]">
+          <td>{{ UserDisplayName[i] }}
+          <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
+          <td>
+            <mat-checkbox [(ngModel)]=Is_Arrived[i]
+                          (change)="UpdateIs_Arrived($event, i)">
+            </mat-checkbox>
+          </td>
+          <td>
+            <mat-checkbox [(ngModel)]=Is_Inspected[i]
+                          (change)="UpdateIs_Inspected($event, i)">
+            </mat-checkbox>
+          </td>
+          <td>
+            <mat-checkbox [(ngModel)]=Is_Released[i]
+                          (change)="UpdateIs_Released($event, i)">
+            </mat-checkbox>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="overflow-auto">
+    <b>Alerts </b>
+    <div class="flex-container">
+      <div *ngFor="let AlertID of AlertID; let i = index" class="alert-card">
+        <mat-card>
+          <mat-card-header class="Time">
+
+            <div class="Time">
+              {{TimeCreated[i] | date:'shortTime'}}
+            </div>
+            <div class="PopUpX">
+              <button mat-button class="PopUpX" (click)="onClick(AlertID)">X</button>
+            </div>
+
+          </mat-card-header>
+          <mat-card-content>
+            {{Message[i]}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+</div>-->
+
+<div class="module">
+  <div class="container">
+    <div fxLayout="row" class="Logo">
+      <div class="Logo2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
+      </div>
+      <div fxLayout="column">
+        <div>
+          <b>Animal Quarantine Airport Station</b>
+        </div>
+        <div>
+          Hawaii Department of Agriculture
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div>
+        <table class="table table-bordered" aria-labelledby="tableLabel">
+          <thead>
+            <tr class="TableHead">
+              <th>Last, First</th>
+              <th>Pet ID</th>
+              <th>Arrived</th>
+              <th>Inspected</th>
+              <th>Release</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]" class="TableBody">
+              <td>{{ UserDisplayName[i] }}</td>
+              <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
+              <td>
+                <mat-checkbox [(ngModel)]=Is_Arrived[i]
+                              (change)="UpdateIs_Arrived($event, i)">
+                </mat-checkbox>
+              </td>
+              <td>
+                <mat-checkbox [(ngModel)]=Is_Inspected[i]
+                              (change)="UpdateIs_Inspected($event, i)">
+                </mat-checkbox>
+              </td>
+              <td>
+                <mat-checkbox [(ngModel)]=Is_Released[i]
+                              (change)="UpdateIs_Released($event, i)">
+                </mat-checkbox>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <table class="table table-bordered" aria-labelledby="tableLabel">
+          <thead>
+            <tr class="TableHead">
+              <th>Alerts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <div class="overflow-auto">
+
+                <div class="flex-container">
+                  <div *ngFor="let AlertID of AlertID; let i = index" class="alert-card">
+
+
+                    <mat-card>
+                      <mat-card-header class="Time">
+
+                        <div class="Time">
+                          {{TimeCreated[i] | date:'shortTime'}}
+                        </div>
+                        <div class="PopUpX">
+                          <button mat-button class="PopUpX" (click)="onClick(AlertID)">X</button>
+                        </div>
+
+                      </mat-card-header>
+                      <mat-card-content>
+                        {{Message[i]}}
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+                </div>
+              </div>
+
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    
+
     </div>
 
   </div>

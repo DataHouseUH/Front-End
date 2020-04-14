@@ -17,4 +17,12 @@ export class FrontDisplayService {
         catchError(error => { return throwError('Its a Trap!') })
       );
   }
+
+  public getConfirmation(UserID, Is_Qualified) {
+    return this.http.post(this.ROOT_URL + '/Confirmation', { UserID: UserID, Is_Qualified: Is_Qualified })
+      .pipe(map((data: any) => data.data),
+        catchError(error => { return throwError('Its a Trap!') })
+      );
+  }
+
 }

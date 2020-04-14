@@ -19,6 +19,7 @@
 .flex-parent {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .CustomAlert{
@@ -36,9 +37,10 @@
 }
 
 .SubmitButton {
-  justify-content: center;
+  justify-content: center !important;
   background-color: #55411C;
   color: white;
+  align-self:center;
 }
 
 .container {
@@ -63,4 +65,19 @@
 
 .PopUpButtons {
   justify-content: center;
+}
+
+.Logo {
+  color: black;
+  font-size: x-large;
+  background-color: #FBFBFB;
+}
+
+.Logo2 {
+  margin: 10px;
+}
+
+.SubmitButton2 {
+  background-color: #F1F1F1;
+  align-content:center !important;
 }

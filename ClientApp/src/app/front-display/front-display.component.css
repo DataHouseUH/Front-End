@@ -1,14 +1,3 @@
-/* Structure */
-.example-container {
-  position: relative;
-  min-height: 200px;
-}
-
-.example-table-container {
-  position: relative;
-  max-height: 400px;
-  overflow: auto;
-}
 
 table {
   width: 100%;
@@ -41,4 +30,41 @@ table {
 
 .mat-column-created {
   max-width: 124px;
+}
+
+.Logo {
+  color: black;
+  font-size: x-large;
+}
+
+.Logo2 {
+  margin: 10px;
+}
+
+.module {
+  position: relative;
+}
+
+  .module::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://biegamnaturalnie.pl/wp-content/uploads/2018/07/bieganie-naturalne-psy-biegaja-1024x683.jpg');
+    filter: blur(8px);
+  }
+
+.container {
+  position: relative;
+}
+
+.TableHead {
+    background-color: #FBFBFB;
+}
+
+.TableBody {
+    background-color: #F1F1F1;
+    font-weight: bold;
 }
