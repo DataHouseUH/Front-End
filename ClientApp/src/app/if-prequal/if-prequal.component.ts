@@ -39,7 +39,7 @@ export class IfPrequalComponent implements OnInit {
         // the timer has reached zero.
 
         clearInterval(interval);
-        this.router.navigate(['owner']);
+        this.router.navigate(['welcome']);
       };
     }, 1000);
   }

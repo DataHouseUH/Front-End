@@ -18,12 +18,13 @@ export class BackDisplayService {
       );
   }
 
-  public UpdateBackDisplay(BackDisplayID, Is_Arrived, Is_Inspected, Is_Released) {
+  public UpdateBackDisplay(BackDisplayID, Is_Arrived, Is_Inspected, Is_Released, Is_Completed) {
     return this.http.post(this.ROOT_URL + '/Update', {
       BackDisplayID: BackDisplayID,
       Is_Arrived: Is_Arrived,
       Is_Inspected: Is_Inspected,
-      Is_Released: Is_Released
+      Is_Released: Is_Released,
+      Is_Completed: Is_Completed
     })
   }
 

@@ -27,6 +27,7 @@ export class BackDisplayComponent {
   Is_Arrived: boolean[] = [];
   Is_Inspected: boolean[] = [];
   Is_Released: boolean[] = [];
+  Is_Completed: boolean[] = [];
   Colour: string[] = [];
   HowManyLoops: any;
 
@@ -65,6 +66,7 @@ export class BackDisplayComponent {
     this.Is_Inspected = records.Is_Inspected;
     this.Is_Released = records.Is_Released;
     this.Colour = records.Colour;
+    this.Is_Completed = records.Is_Completed;
   }
 
   resultsLength = 0;
@@ -72,23 +74,28 @@ export class BackDisplayComponent {
   isRateLimitReached = false;
 
   UpdateIs_Arrived(event, i) {
-    this.UpdateStatus(this.BackDisplayID[i], event.checked, 'NULL', 'NULL')
+    this.UpdateStatus(this.BackDisplayID[i], event.checked, 'NULL', 'NULL', 'NULL')
   }
 
   UpdateIs_Inspected(event, i) {
-    this.UpdateStatus(this.BackDisplayID[i], 'NULL', event.checked, 'NULL')
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', event.checked, 'NULL', 'NULL')
   }
 
   UpdateIs_Released(event, i) {
-    this.UpdateStatus(this.BackDisplayID[i], 'NULL', 'NULL', event.checked)
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', 'NULL', event.checked, 'NULL')
   }
 
-  async UpdateStatus(BackDisplayID: number, Is_Arrived: any, Is_Inspected: any, Is_Released: any) {
+  UpdateIs_Completed(event, i) {
+    console.log("Ï am here")
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', 'NULL', 'NULL', event.checked)
+  }
+
+  async UpdateStatus(BackDisplayID: number, Is_Arrived: any, Is_Inspected: any, Is_Released: any, Is_Completed: any) {
     console.log(BackDisplayID)
     console.log(Is_Arrived)
     console.log(Is_Inspected)
     console.log(Is_Released)
-    await this._BackDisplayService.UpdateBackDisplay(BackDisplayID, Is_Arrived, Is_Inspected, Is_Released).toPromise();
+    await this._BackDisplayService.UpdateBackDisplay(BackDisplayID, Is_Arrived, Is_Inspected, Is_Released, Is_Completed).toPromise();
     this.getBackDisplayItems();
   }
 
