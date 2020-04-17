@@ -1,26 +1,21 @@
+#logo{
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png");
+}
+
 .Title {
   background-color: #FBFBFB;
   height: 5vh;
 }
-.wrapper {
-  display: grid;
-  grid-template-columns: 0.5fr 0.01fr 0.5fr;
-  column-gap: 10px;
-  row-gap: 1em;
-}
-.phonewrapper {
-  display: grid;
-  grid-template-columns: 0.8fr 1fr 0.1fr 2fr;
-  column-gap: 10px;
-  row-gap: 1em;
-}
+
 .Form {
   background-color: #F1F1F1 !important;
 /*background-color: #646464;*/
 }
-.container {
-  position: relative;
-  background-color: ghostwhite;
+.phonewrapper {
+  display: grid;
+  grid-template-columns: 0.5fr 0.8fr 1fr 0.1fr 2fr;
+  column-gap: 10px;
+  row-gap: 1em;
 }
 .NameBox {
   margin: 10px;
@@ -29,20 +24,7 @@
   border-color: #A1834D;
 
 }
-.module {
-  position: relative;
-}
 
-.module::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://biegamnaturalnie.pl/wp-content/uploads/2018/07/bieganie-naturalne-psy-biegaja-1024x683.jpg');
-  filter: blur(8px);
-}
 .PhoneBox {
   margin: 10px;
   width: 20%;
@@ -67,11 +49,50 @@
 .mat-form-field-appearance-outline{
   color: red;
 }
-.SubmitButton {
-  justify-content: center;
-  background-color: #55411C;
-  color: white;
-  padding-right: 200px;
+
+#submit{
+text-align: center;
 }
 
+.module {
+  position: relative;
+}
 
+.module::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: url('https://biegamnaturalnie.pl/wp-content/uploads/2018/07/bieganie-naturalne-psy-biegaja-1024x683.jpg') ;
+  filter: blur(8px);
+
+}
+
+.container {
+  position: relative;
+  background-color: #dedddc;
+  width: 70%;
+  height: 100%;
+  font-family: "adobe-clean", sans-serif;
+
+}
+.Logo2 {
+  margin: 10px;
+  color: whitesmoke;
+  margin-left: 10px;
+  background-color: transparent;
+  position: relative;
+}
+.form-control{
+  background-color: #dedddc;
+  border: 2px solid burlywood;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.Logo {
+  margin-left: 220px;
+  color: whitesmoke;
+  font-size: x-large;
+}
