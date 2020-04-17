@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, AfterViewInit} from '@angular/core';
 import { FrontDisplayService } from './front-display.service';
+import {newArray} from "@angular/compiler/src/util";
 
 /* Table that retreives data via HTTP */
 @Component({
@@ -18,7 +19,13 @@ export class FrontDisplayComponent implements AfterViewInit {
   UserDisplayName: string[] = [];
   StatusName: string[] = [];
   HowManyLoops: any;
-  constructor(private _FrontDisplayService: FrontDisplayService) { }
+  empty: number[] = [];
+
+  constructor(private _FrontDisplayService: FrontDisplayService) {
+    for ( let i = 0; i < 10; i++) {
+          this.empty.push(i);
+  }
+  }
 
 
 

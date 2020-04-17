@@ -22,8 +22,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let DisplayID of DisplayID; let i = index" class="TableBody">
-          <td>{{ DisplayID }}
+        <tr *ngFor="let i of empty;" class="TableBody">
+          <td>{{ DisplayID[i] }}</td>
           <td>{{ UserDisplayName[i] }}</td>
           <td>{{ StatusName[i] }}</td>
         </tr>
