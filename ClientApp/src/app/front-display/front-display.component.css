@@ -1,4 +1,9 @@
-
+.two_table{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  column-gap: 10px;
+  row-gap: 1em;
+}
 table {
   width: 100%;
 }

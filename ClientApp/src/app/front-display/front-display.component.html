@@ -13,6 +13,8 @@
         </div>
       </div>
     </div>
+    <div class="two_table">
+      <div>
     <table class="table table-bordered" aria-labelledby="tableLabel">
       <thead>
         <tr class="TableHead">
@@ -22,12 +24,32 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of empty;" class="TableBody">
+        <tr *ngFor="let i of table1" class="TableBody">
           <td>{{ DisplayID[i] }}</td>
           <td>{{ UserDisplayName[i] }}</td>
           <td>{{ StatusName[i] }}</td>
         </tr>
       </tbody>
     </table>
+      </div>
+      <div>
+      <table class="table table-bordered" aria-labelledby="tableLabel">
+        <thead>
+        <tr class="TableHead">
+          <th>No.</th>
+          <th>Last, First</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let j of table2;" class="TableBody">
+          <td>{{ DisplayID[j] }}</td>
+          <td>{{ UserDisplayName[j] }}</td>
+          <td>{{ StatusName[j] }}</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
   </div>
 </div>

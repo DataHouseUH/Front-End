@@ -19,12 +19,16 @@ export class FrontDisplayComponent implements AfterViewInit {
   UserDisplayName: string[] = [];
   StatusName: string[] = [];
   HowManyLoops: any;
-  empty: number[] = [];
+  table1: number[] = [];
+  table2: number[] = [];
 
   constructor(private _FrontDisplayService: FrontDisplayService) {
     for ( let i = 0; i < 10; i++) {
-          this.empty.push(i);
+          this.table1.push(i);
   }
+    for ( let i = 10; i < 20; i++) {
+      this.table2.push(i);
+    }
   }
 
 
