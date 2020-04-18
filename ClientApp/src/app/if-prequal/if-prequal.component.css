@@ -83,3 +83,16 @@
 .Logo2 {
     margin: 10px;
 }
+
+.line {
+  padding-top: 20px;
+  position: absolute;
+  margin-left: 310px;
+  display: block;
+  font-size: 35px;
+
+}
+
+.middle {
+  text-align: center;
+}
