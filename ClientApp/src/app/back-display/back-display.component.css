@@ -1,7 +1,12 @@
 table {
   width: 100%;
 }
-
+.table_layout{
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  column-gap: 1px;
+  row-gap: 1em;
+}
 .alert-card {
   margin: 20px;
   padding: 0px;
@@ -36,8 +41,15 @@ table {
 
 .PopUpX {
   justify-content: right;
-}
 
+}
+.close_button{
+  position: absolute;
+  color: grey;
+  top: 0px;
+  right: 0px;
+  size: 10px;
+}
 .Time {
   justify-content: left;
   font-weight: bolder;

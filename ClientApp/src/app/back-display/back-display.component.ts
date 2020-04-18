@@ -15,7 +15,7 @@ export class BackDisplayComponent {
 
   items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
 
-  constructor(private _BackDisplayService: BackDisplayService) { }
+  constructor(private _BackDisplayService: BackDisplayService) { for ( let i = 0; i < 10; i++) {this.table.push(i); } }
 
   displayedColumns: string[] = ['Last, First', 'Pet ID', 'Arrived', 'Inspected', 'Release'];
 
@@ -30,6 +30,7 @@ export class BackDisplayComponent {
   Is_Completed: boolean[] = [];
   Colour: string[] = [];
   HowManyLoops: any;
+  table: number[] = [];
 
   ngOnInit() {
     this.getBackDisplayItems();
@@ -129,5 +130,5 @@ export class BackDisplayComponent {
     await this._BackDisplayService.DeleteAlerts(value).toPromise();
     this.getAlertItems();
   }
-  
+
 }
