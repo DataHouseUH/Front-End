@@ -65,8 +65,49 @@ export class AlertListComponent implements OnInit {
         }
       )
 
+<<<<<<< Updated upstream
       this.input = null;
     }
+=======
+    if (this.Message[this.Message.length - 1] != "+") {
+      // this.Message.push("+");
+      this.ID.push(-1);
+    }
+  }
+
+  // Prepopulate Message
+  PopulateMessageAlert(Message: string) {
+    this.AlertMessage = Message;
+  }
+
+  // OpenDialog()
+  openDialog(Message: string, ID: number): void {
+    const dialogRef = this.dialog.open(AlertListPopUpComponent, {
+      width: '50%',
+      data: { Message: Message, ID: ID },
+      panelClass: 'myapp-no-padding-dialog'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getAlertItems();
+    });
+  }
+
+  async submitAlert(value: string) {
+    await this._AlertListService.SubmitAlerts(value).toPromise();
+    console.log(value);
+  }
+}
+
+//// PopUp Stuff
+@Component({
+  selector: 'app-alert-list',
+  templateUrl: './alert-list-pop-up.component.html',
+  styleUrls: ['./alert-list.component.css']
+})
+export class AlertListPopUpComponent {
+>>>>>>> Stashed changes
 
   }
     setVariables(records) {
