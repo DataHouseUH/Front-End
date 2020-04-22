@@ -51,8 +51,10 @@ table {
   size: 10px;
 }
 .Time {
-  justify-content: left;
+
   font-weight: bolder;
+  left: 0px;
+  top: 0px;
 }
 
 
