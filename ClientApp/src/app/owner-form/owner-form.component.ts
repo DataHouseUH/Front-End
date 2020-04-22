@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from  '@angular/forms';
-import { MatInputModule } from '@angular/material/input'
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 import { OwnerFormService } from './owner-form.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -17,17 +17,16 @@ const material = [
 
 export class OwnerFormComponent {
   checkinForm: FormGroup;
-
   constructor(private formBuilder: FormBuilder, private _OwnerFormService: OwnerFormService, private route: ActivatedRoute,
-    private router: Router ) {
+    private router: Router, private changesDetector: ChangeDetectorRef) {
     this.createContactForm();
 
   }
 
-  records: UserTbl[] = []
-  Status: number[] = []
-  Error: string[] = []
-  UserID: number[] = []
+  records: UserTbl[] = [];
+  Status: number[] = [];
+  Error: string[] = [];
+  UserID: number[] = [];
 
   // When load, default values...
   createContactForm() {
@@ -39,15 +38,26 @@ export class OwnerFormComponent {
       phone3: [''],
       phone4: [''],
       MicoID: [''],
-      email: ['']
+      email: [''],
+      newMicrochip: ['']
     });
   }
 
   ngOnInit() {
-    this.createContactForm()
+    this.createContactForm();
+  }
+
+  get newPet() {
+      return this.checkinForm.get('newPet') as FormArray;
+  }
+
+  addPet() {
+    this.newPet.push(this.formBuilder.control(''));
+    this.changesDetector.detectChanges();
   }
 
   onSubmit() {
+    // TODO: Implement function to process new pet microchip IDs
     event.preventDefault();
 
     // Get Values from form
@@ -60,10 +70,10 @@ export class OwnerFormComponent {
     // Hit Database
     this._OwnerFormService.isAuthorized(lastname, firstname, MicroID, email, phone).subscribe(
       data => {
-        this.records = data
-        console.log(data)
-        this.setVariables(this.records)
-        console.log(data)
+        this.records = data;
+        console.log(data);
+        this.setVariables(this.records);
+        console.log(data);
 
         this._OwnerFormService.UserID = this.UserID[0];
         if (this.Status[0] == 1) {
@@ -76,10 +86,10 @@ export class OwnerFormComponent {
       },
       err => console.error(err)
     );
-    //if(firstname!=="" && lastname!=="" && phone!=="")
-    //{
-    //  this.router.navigate(['/search']);
-    //}
+    // if(firstname!=="" && lastname!=="" && phone!=="")
+    // {
+    // this.router.navigate(['/search']);
+    // }
   }
 
   setVariables(records) {
@@ -89,3 +99,4 @@ export class OwnerFormComponent {
   }
 
 }
+
