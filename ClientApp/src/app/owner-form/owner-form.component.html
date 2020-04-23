@@ -46,17 +46,21 @@
     </div>
     </div>
 
-    <!-- Pet Microchip-->
-    <div class="form-group">
-        <label for="microchip">Pet Microchip ID</label>
-        <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="microchip">
-        <p>Want to add another pet?</p>
-        <button (click)="addPet()" value="Add pet" class="btn btn-secondary btn-medium" style="margin-bottom: 5px; margin-top: 5px; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px" >Add another pet</button>
+      <!-- Pet Microchip-->
+      <div class="form-group">
 
-        <div addPetArray="newPet" *ngFor="let pet of checkinForm.get('newPet'); let i = index">
+          <label for="microchip">Pet Microchip ID</label>
+          <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="microchip">
+
+
+        <div formArrayName="MorePets" *ngFor="let pet of checkinForm.controls.MorePets?.value; let i = index">
+          <ng-container [formGroupName]="i">
           <label for="newMicrochip">Pet Microchip ID</label>
-          <input type="text" class="form-control i-1" [formControlName]="i" id="newMicrochip">
+          <input type="text" class="form-control i-1" formControlName="MicroID" id="newMicrochip">
+          </ng-container>
         </div>
+      <p>Want to add another pet?</p>
+      <button type="button" (click)="addPet()" value="Add pet" class="btn btn-secondary btn-medium" style="margin-bottom: 5px; margin-top: 5px; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px" >Add another pet</button>
       </div>
 
     <!-- TODO: Implement new pet microchip ID input fields -->

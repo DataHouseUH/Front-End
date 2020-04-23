@@ -27,6 +27,7 @@ export class OwnerFormComponent {
   Status: number[] = [];
   Error: string[] = [];
   UserID: number[] = [];
+  pets: string[] = [];
 
   // When load, default values...
   createContactForm() {
@@ -39,7 +40,14 @@ export class OwnerFormComponent {
       phone4: [''],
       MicoID: [''],
       email: [''],
-      newMicrochip: ['']
+      newMicrochip: [''],
+      0: [''],
+      1: [''],
+      2: [''],
+      3: [''],
+      4: [''],
+      5: [''],
+      MorePets: this.formBuilder.array([])
     });
   }
 
@@ -48,22 +56,28 @@ export class OwnerFormComponent {
   }
 
   get newPet() {
-      return this.checkinForm.get('newPet') as FormArray;
+      return this.checkinForm.get('MorePets') as FormArray;
   }
 
   addPet() {
-    this.newPet.push(this.formBuilder.control(''));
-    this.changesDetector.detectChanges();
+    //this.newPet.push(this.formBuilder.control(''));
+   //this.changesDetector.detectChanges();
+    const newpets = this.checkinForm.controls.MorePets as FormArray;
+    newpets.push(this.formBuilder.group({MicroID: '' }));
+    this.pets.push('newpet');
   }
 
   onSubmit() {
     // TODO: Implement function to process new pet microchip IDs
     event.preventDefault();
-
+    const MicroIDS = [];
     // Get Values from form
     const firstname = this.checkinForm.value.firstName;
     const lastname = this.checkinForm.value.lastName;
     const phone = this.checkinForm.value.areaCode1 + this.checkinForm.value.areaCode2 + this.checkinForm.value.phone3 + this.checkinForm.value.phone4;
+    for ( let i = 0; i < this.pets.length; i++) {
+      MicroIDS[i] = this.checkinForm.value.i;
+    }
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
 
@@ -78,10 +92,10 @@ export class OwnerFormComponent {
         this._OwnerFormService.UserID = this.UserID[0];
         if (this.Status[0] == 1) {
           this._OwnerFormService.Is_Qualified = true;
-          this.router.navigate(['/qualify']);
+          //this.router.navigate(['/qualify']);
         } else {
           this._OwnerFormService.Is_Qualified = false;
-          this.router.navigate(['/noqualify']);
+         // this.router.navigate(['/noqualify']);
         }
       },
       err => console.error(err)
