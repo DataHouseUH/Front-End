@@ -34,10 +34,7 @@ export class OwnerFormComponent {
     this.checkinForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
-      areaCode1: [''],
-      areaCode2: [''],
-      phone3: [''],
-      phone4: [''],
+      phoneNum: [''],
       MicoID: [''],
       email: [''],
       newMicrochip: [''],
@@ -68,7 +65,7 @@ export class OwnerFormComponent {
     // Get Values from form
     const firstname = this.checkinForm.value.firstName;
     const lastname = this.checkinForm.value.lastName;
-    const phone = this.checkinForm.value.areaCode1 + this.checkinForm.value.areaCode2 + this.checkinForm.value.phone3 + this.checkinForm.value.phone4;
+    const phone = this.checkinForm.value.phoneNum;
     for ( let i = 0; i < this.checkinForm.value.MorePets.length; i++) {
       console.log(this.checkinForm.value.MorePets[i]);
       MicroIDS[i] = this.checkinForm.value.MorePets[i].MicoID;
