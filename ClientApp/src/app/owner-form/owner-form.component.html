@@ -8,11 +8,11 @@
       <img src="assets/img/ag_hi.png" style="width:50px;height:50px;">
     </div>
     <div class="Logo2" fxLayout="column">
-      <div>
+      <div style="font-weight:300;">
         State of Hawaii
       </div>
       <div>
-        <b>Animal Industry Division</b>
+        <b style="font-weight:500;">Animal Industry Division</b>
       </div>
     </div>
   </div>
@@ -20,27 +20,27 @@
   <div class="container">
 
     <div>
-      <h3>Please sign-in by entering the following:</h3>
+      <h3 class="form-header">Please sign-in by entering the following:</h3>
 
 
 
-      <form [formGroup]="checkinForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="checkinForm" (ngSubmit)="onSubmit()" class="form-header">
 
 
         <div class="form-row">
           <!-- Last Name -->
           <div class="form-group col-md-5">
             <label for="lastname">Last Name</label>
-            <input type="text" placeholder="Type here" class="form-control" id="lastname" formControlName="lastName" required>
+            <input type="text" placeholder="Type here" class="form-control" style="width:120%" id="lastname" formControlName="lastName" required>
             <!-- <div class="alert alert-danger">
          TODO: Implement error message if input has been left blank after submission
         This field is required
       </div> -->
           </div>
           <!-- First Name -->
-          <div class="form-group col-md-5">
+          <div class="form-group col-md-5" style="margin-left:90px;">
             <label for="firstname">First Name</label>
-            <input type="text" placeholder="Type here" class="form-control" id="firstname" formControlName="firstName" required>
+            <input type="text" placeholder="Type here" style="width:120%" class="form-control" id="firstname" formControlName="firstName" required>
           </div>
         </div>
 

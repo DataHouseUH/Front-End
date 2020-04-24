@@ -91,3 +91,6 @@ text-align: center;
   color: whitesmoke;
   font-size: x-large;
 }
+.form-header {
+  padding: 2% 12px 12px;
+}
