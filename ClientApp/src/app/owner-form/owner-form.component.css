@@ -11,12 +11,7 @@
   background-color: #F1F1F1 !important;
 /*background-color: #646464;*/
 }
-.phonewrapper {
-  display: grid;
-  grid-template-columns: 0.5fr 0.8fr 1fr 0.1fr 2fr;
-  column-gap: 10px;
-  row-gap: 1em;
-}
+
 .NameBox {
   margin: 10px;
   width: 50%;
@@ -25,7 +20,7 @@
 
 }
 
-.PhoneBox {
+.phoneNum {
   margin: 10px;
   width: 100%;
   background-color: transparent;
