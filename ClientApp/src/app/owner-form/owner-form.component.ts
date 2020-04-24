@@ -39,6 +39,7 @@ export class OwnerFormComponent {
       phone3: [''],
       phone4: [''],
       MicoID: [''],
+      petname: [''],
       email: ['']
     });
   }
@@ -53,12 +54,18 @@ export class OwnerFormComponent {
     // Get Values from form
     const firstname = this.checkinForm.value.firstName;
     const lastname = this.checkinForm.value.lastName;
+    const petname = this.checkinForm.value.petname;
     const phone = this.checkinForm.value.areaCode1 + this.checkinForm.value.areaCode2 + this.checkinForm.value.phone3 + this.checkinForm.value.phone4;
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
 
+    console.log(firstname);
+    console.log(lastname);
+    console.log(phone);
+    console.log(email);
+    console.log(MicroID);
     // Hit Database
-    this._OwnerFormService.isAuthorized(lastname, firstname, MicroID, email, phone).subscribe(
+    this._OwnerFormService.isAuthorized(lastname, firstname, petname, MicroID, email, phone).subscribe(
       data => {
         this.records = data
         console.log(data)
