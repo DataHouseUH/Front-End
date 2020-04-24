@@ -17,6 +17,7 @@ export class FrontDisplayComponent implements AfterViewInit {
   data: KioskInfo[] = [];   /* Data to use */
   DisplayID: number[] = [];
   UserDisplayName: string[] = [];
+  PetName: string[] = [];
   StatusName: string[] = [];
   HowManyLoops: any;
   table1: number[] = [];
@@ -61,6 +62,7 @@ export class FrontDisplayComponent implements AfterViewInit {
   setVariables(records) {
     this.DisplayID = records.DisplayID;
     this.UserDisplayName = records.UserDisplayName;
+    this.PetName = records.PetName;
     this.StatusName = records.StatusName;
   }
 

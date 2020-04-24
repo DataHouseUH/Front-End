@@ -26,32 +26,40 @@
 
 
 
-    <form [formGroup]="checkinForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="checkinForm" (ngSubmit)="onSubmit()">
 
 
     <div class="form-row">
-    <!-- Last Name -->
-    <div class="form-group col-md-5">
-      <label for="lastname">Last Name</label>
-      <input type="text" placeholder="Type here" class="form-control" id="lastname" formControlName="lastName" required>
-      <!-- <div class="alert alert-danger">
+      <!-- Last Name -->
+      <div class="form-group col-md-5">
+        <label for="lastname">Last Name</label>
+        <input type="text" placeholder="Type here" class="form-control" id="lastname" formControlName="lastName" required>
+        <!-- <div class="alert alert-danger">
          TODO: Implement error message if input has been left blank after submission
         This field is required
       </div> -->
-    </div>
-    <!-- First Name -->
-    <div class="form-group col-md-5">
-      <label for="firstname">First Name</label>
-      <input type="text" placeholder="Type here" class="form-control" id="firstname" formControlName="firstName" required>
-    </div>
+      </div>
+      <!-- First Name -->
+      <div class="form-group col-md-5">
+        <label for="firstname">First Name</label>
+        <input type="text" placeholder="Type here" class="form-control" id="firstname" formControlName="firstName" required>
+      </div>
     </div>
 
       <!-- Pet Microchip-->
       <div class="form-group">
 
+    <!-- Phone Number -->
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="areaCode">Phone Number</label>
+      <div class="phonewrapper">
+        <input type="text" style="width:100%" class="form-control" placeholder="+1" maxlength="3" formControlName="areaCode1" id="areaCode" required>
           <label for="microchip">Pet Microchip ID</label>
           <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="microchip">
 
+        <div>
+          <input type="text" style="width:100%" class="form-control" placeholder="( x x x )" maxlength="3" formControlName="areaCode2" id="areaCode2" style="background-color: #dedddc; border: 2px solid burlywood " required>
 
         <div formArrayName="MorePets" *ngFor="let pet of newPet.controls; let i = index">
           <ng-container [formGroupName]="i">
@@ -76,10 +84,22 @@
       <input type="text" class="form-control" placeholder="Type here" formControlName="email" id="email" required>
     </div>
 
+    <!-- Pet Microchip-->
+    <div class="form-group">
+      <label for="microchip">Pet Microchip ID</label>
+      <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="microchip">
+    </div>
+
+    <!-- Pet Name-->
+    <div class="form-group">
+      <label for="petname">Pet Name</label>
+      <input type="text" class="form-control" placeholder="Type here" formControlName="petname" id="petname">
+    </div>
+
     <!-- Submit form -->
     <!---button type="submit" class="btn btn-success">Submit<!/button-->
-    <div class ="text-center">
-    <button type="submit" class="btn btn-secondary btn-large" style="margin-bottom: 30px; margin-top: 20px; padding-left: 100px; padding-right: 100px; padding-top: 10px; padding-bottom: 10px" >Submit</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-secondary btn-large" style="margin-bottom: 30px; margin-top: 20px; padding-left: 100px; padding-right: 100px; padding-top: 10px; padding-bottom: 10px">Submit</button>
     </div>
 
   </form>

@@ -18,10 +18,11 @@ export class OwnerFormService {
   //    );
   //}
 
-  public isAuthorized(_lastname, _firstname, _microchipID, _email, _phonenumber) {
+  public isAuthorized(_lastname, _firstname, _petname, _microchipID, _email, _phonenumber) {
     return this.http.post(this.ROOT_URL + '/View', {
       LastName: _lastname,
       FirstName: _firstname,
+      PetName: _petname,
       MicrochipID: _microchipID,
       Email: _email,
       PhoneNumber: _phonenumber
