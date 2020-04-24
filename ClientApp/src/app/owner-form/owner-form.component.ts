@@ -41,12 +41,6 @@ export class OwnerFormComponent {
       MicoID: [''],
       email: [''],
       newMicrochip: [''],
-      0: [''],
-      1: [''],
-      2: [''],
-      3: [''],
-      4: [''],
-      5: [''],
       MorePets: this.formBuilder.array([])
     });
   }
@@ -63,8 +57,8 @@ export class OwnerFormComponent {
     //this.newPet.push(this.formBuilder.control(''));
    //this.changesDetector.detectChanges();
     const newpets = this.checkinForm.controls.MorePets as FormArray;
-    newpets.push(this.formBuilder.group({MicroID: '' }));
-    this.pets.push('newpet');
+    newpets.push(this.formBuilder.group({MicoID: [''] }));
+    //this.pets.push('newpet');
   }
 
   onSubmit() {
@@ -75,8 +69,12 @@ export class OwnerFormComponent {
     const firstname = this.checkinForm.value.firstName;
     const lastname = this.checkinForm.value.lastName;
     const phone = this.checkinForm.value.areaCode1 + this.checkinForm.value.areaCode2 + this.checkinForm.value.phone3 + this.checkinForm.value.phone4;
-    for ( let i = 0; i < this.pets.length; i++) {
-      MicroIDS[i] = this.checkinForm.value.i;
+    for ( let i = 0; i < this.checkinForm.value.MorePets.length; i++) {
+      console.log(this.checkinForm.value.MorePets[i]);
+      MicroIDS[i] = this.checkinForm.value.MorePets[i].MicoID;
+    }
+    for ( let i = 0; i < MicroIDS.length; i++) {
+      console.log('test' + MicroIDS[i]);
     }
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
@@ -90,12 +88,12 @@ export class OwnerFormComponent {
         console.log(data);
 
         this._OwnerFormService.UserID = this.UserID[0];
-        if (this.Status[0] == 1) {
+        if (this.Status[0] === 1) {
           this._OwnerFormService.Is_Qualified = true;
-          //this.router.navigate(['/qualify']);
+          this.router.navigate(['/qualify']);
         } else {
           this._OwnerFormService.Is_Qualified = false;
-         // this.router.navigate(['/noqualify']);
+          this.router.navigate(['/noqualify']);
         }
       },
       err => console.error(err)

@@ -53,10 +53,10 @@
           <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="microchip">
 
 
-        <div formArrayName="MorePets" *ngFor="let pet of checkinForm.controls.MorePets?.value; let i = index">
+        <div formArrayName="MorePets" *ngFor="let pet of newPet.controls; let i = index">
           <ng-container [formGroupName]="i">
           <label for="newMicrochip">Pet Microchip ID</label>
-          <input type="text" class="form-control i-1" formControlName="MicroID" id="newMicrochip">
+          <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="newMicrochip">
           </ng-container>
         </div>
       <p>Want to add another pet?</p>
