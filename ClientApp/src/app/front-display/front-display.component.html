@@ -21,6 +21,7 @@
           <th>No.</th>
           <th>Last, First</th>
           <th>Status</th>
+          <th>PetName</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +29,7 @@
           <td>{{ DisplayID[i] }}</td>
           <td>{{ UserDisplayName[i] }}</td>
           <td>{{ StatusName[i] }}</td>
+          <td>{{ PetName[i] }}</td>
         </tr>
       </tbody>
     </table>
@@ -35,18 +37,20 @@
       <div>
       <table class="table table-bordered" aria-labelledby="tableLabel">
         <thead>
-        <tr class="TableHead">
-          <th>No.</th>
-          <th>Last, First</th>
-          <th>Status</th>
-        </tr>
+          <tr class="TableHead">
+            <th>No.</th>
+            <th>Last, First</th>
+            <th>Status</th>
+            <th>PetName</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let j of table2;" class="TableBody">
-          <td>{{ DisplayID[j] }}</td>
-          <td>{{ UserDisplayName[j] }}</td>
-          <td>{{ StatusName[j] }}</td>
-        </tr>
+          <tr *ngFor="let j of table2;" class="TableBody">
+            <td>{{ DisplayID[j] }}</td>
+            <td>{{ UserDisplayName[j] }}</td>
+            <td>{{ StatusName[j] }}</td>
+            <td>{{ PetName[i] }}</td>
+          </tr>
         </tbody>
       </table>
       </div>
