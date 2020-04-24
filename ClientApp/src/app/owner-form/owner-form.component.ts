@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, FormArray, Fo
 import { MatInputModule } from '@angular/material/input';
 import { OwnerFormService } from './owner-form.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { UserTbl } from './owner-form';
 
@@ -17,8 +18,14 @@ const material = [
 
 export class OwnerFormComponent {
   checkinForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private _OwnerFormService: OwnerFormService, private route: ActivatedRoute,
-    private router: Router, private changesDetector: ChangeDetectorRef) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private _OwnerFormService: OwnerFormService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private changesDetector: ChangeDetectorRef,
+    private _snackBar: MatSnackBar
+  ) {
     this.createContactForm();
 
   }
@@ -83,6 +90,7 @@ export class OwnerFormComponent {
     console.log(phone);
     console.log(email);
     console.log(MicroID);
+    console.log(petname);
     // Hit Database
     this._OwnerFormService.isAuthorized(lastname, firstname, petname, MicroID, email, phone).subscribe(
       data => {
@@ -95,10 +103,15 @@ export class OwnerFormComponent {
         if (this.Status[0] === 1) {
           this._OwnerFormService.Is_Qualified = true;
           this.router.navigate(['/qualify']);
-        } else {
+        } else if (this.Status[0] === 0) {
           this._OwnerFormService.Is_Qualified = false;
           this.router.navigate(['/noqualify']);
+        } else {
+          this._snackBar.open(this.Error[0], 'Close', {
+            duration: 2000,
+          });
         }
+        
       },
       err => console.error(err)
     );
