@@ -63,7 +63,14 @@
 .PopUpInput {
   margin: 5px;
 }
+deleteButton{
+  position: absolute;
+  color: red;
+  bottom: 2px;
+  left: 0px;
+  size: 10px;
 
+}
 .PopUpX {
   float: right;
   margin: 5px;
