@@ -20,16 +20,16 @@
         <tr class="TableHead">
           <th>No.</th>
           <th>Last, First</th>
-          <th>Status</th>
           <th>PetName</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let i of table1" class="TableBody">
           <td>{{ DisplayID[i] }}</td>
           <td>{{ UserDisplayName[i] }}</td>
-          <td>{{ StatusName[i] }}</td>
           <td>{{ PetName[i] }}</td>
+          <td>{{ StatusName[i] }}</td>
         </tr>
       </tbody>
     </table>
@@ -40,16 +40,16 @@
           <tr class="TableHead">
             <th>No.</th>
             <th>Last, First</th>
-            <th>Status</th>
             <th>PetName</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let j of table2;" class="TableBody">
             <td>{{ DisplayID[j] }}</td>
             <td>{{ UserDisplayName[j] }}</td>
-            <td>{{ StatusName[j] }}</td>
             <td>{{ PetName[i] }}</td>
+            <td>{{ StatusName[j] }}</td>
           </tr>
         </tbody>
       </table>
