@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <div fxLayout="row wrap">
+    <div class="table_layout" >
       <div>
         <table class="table table-bordered" aria-labelledby="tableLabel">
           <thead>
@@ -105,26 +105,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let BackDisplayID of BackDisplayID; let i = index" [style.background-color]="'#' + Colour[i]" class="TableBody">
+            <tr *ngFor="let i of table" [style.background-color]="'#' + Colour[i]" class="TableBody">
               <td>{{ UserDisplayName[i] }}</td>
               <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
-              <td>
-                <mat-checkbox [(ngModel)]=Is_Arrived[i]
+              <td >
+                <mat-checkbox *ngIf="UserDisplayName[i]!=null" [(ngModel)]=Is_Arrived[i]
                               (change)="UpdateIs_Arrived($event, i)">
                 </mat-checkbox>
               </td>
               <td>
-                <mat-checkbox [(ngModel)]=Is_Inspected[i]
+                <mat-checkbox *ngIf="UserDisplayName[i]!=null" [(ngModel)]=Is_Inspected[i]
                               (change)="UpdateIs_Inspected($event, i)">
                 </mat-checkbox>
               </td>
               <td>
-                <mat-checkbox [(ngModel)]=Is_Released[i]
+                <mat-checkbox *ngIf="UserDisplayName[i]!=null" [(ngModel)]=Is_Released[i]
                               (change)="UpdateIs_Released($event, i)">
                 </mat-checkbox>
               </td>
               <td>
-                <mat-checkbox [(ngModel)]=Is_Completed[i]
+                <mat-checkbox *ngIf="UserDisplayName[i]!=null" [(ngModel)]=Is_Completed[i]
                               (change)="UpdateIs_Completed($event, i)">
                 </mat-checkbox>
               </td>
@@ -155,9 +155,8 @@
                           {{TimeCreated[i] | date:'shortTime'}}
                         </div>
                         <div class="PopUpX">
-                          <button mat-button class="PopUpX" (click)="onClick(AlertID)">X</button>
+                          <button mat-button class="close_button"  (click)="onClick(AlertID)">X</button>
                         </div>
-
                       </mat-card-header>
                       <mat-card-content>
                         {{Message[i]}}
@@ -171,7 +170,7 @@
           </tbody>
         </table>
       </div>
-    
+
 
     </div>
 

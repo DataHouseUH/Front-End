@@ -12,6 +12,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
@@ -27,7 +28,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatCardModule,
     MatCheckboxModule,
     ScrollingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     MatTableModule,
@@ -40,7 +42,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatCardModule,
     MatCheckboxModule,
     ScrollingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 

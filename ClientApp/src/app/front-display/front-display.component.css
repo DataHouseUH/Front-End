@@ -1,8 +1,17 @@
+.two_table{
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  column-gap: 10px;
+  row-gap: 1em;
+  border-radius: 10px 10px 10px 10px;
 
+}
 table {
   width: 100%;
 }
-
+td{
+  height: 50px;
+}
 .example-loading-shade {
   position: absolute;
   top: 0;
@@ -10,7 +19,7 @@ table {
   bottom: 56px;
   right: 0;
   height: 100%;
-  background-image: url("../../assets/img/background_dog.jpg"); 
+  background-image: url("../../assets/img/background_dog.jpg");
   background: rgba(0, 0, 0, 0.15);
   z-index: 1;
   display: flex;
@@ -35,10 +44,10 @@ table {
 }
 
 .Logo {
-  margin: 30px;
+  margin: 10px;
   color: whitesmoke;
   font-size: x-large;
-  font-family: Poppins, light;
+  font-family: Poppins;
 }
 
 .Logo2 {
@@ -56,19 +65,26 @@ table {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../../assets/img/background_dog.jpg"); 
+    background-image: url("../../assets/img/background_dog.jpg");
     filter: blur(8px);
   }
 
 .container {
   position: relative;
+  border-radius: 10px 10px 10px 10px;
+
+
 }
 
 .TableHead {
     background-color: #FBFBFB;
+    border-radius: 10px 10px 10px 10px;
+
 }
 
 .TableBody {
     background-color: #F1F1F1;
     font-weight: bold;
+    border-radius: 10px 10px 10px 10px;
+
 }

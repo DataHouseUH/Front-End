@@ -7,16 +7,21 @@
     <div>
       <mat-form-field class="AlertBox" appearance="outline">
         <textarea matInput placeholder="Owner A came to pick up Pet B" [(ngModel)]="data.Message"></textarea>
-        </mat-form-field>
+      </mat-form-field>
     </div>
 
     <div fxLayout="row" class="PopUpButtons">
-      <div class="CustomAlertPopUpBox">
-        <button mat-button (click)="deleteAlert(data.ID)"> Delete </button>
+
+      <div class="CustomAlertPopUpBox" style="background-color: green;">
+        <button mat-button (click)="updateAlert(data.Message, data.ID)"> Save </button>
       </div>
-      <div class="CustomAlertPopUpBox">
-        <button mat-button (click)="updateAlert(data.Message, data.ID)"> Submit </button>
+      <div class="CustomAlertPopUpBox" style="background-color: red;">
+        <button mat-button class="PopUpX" (click)="onNoClick()">Cancel</button>
       </div>
+    </div>
+    <div class="deleteButton" *ngIf="data.ID != -1">
+
+      <button style="background: red;" mat-button (click)="deleteAlert(data.ID)"> Delete </button>
     </div>
   </div>
 </div>

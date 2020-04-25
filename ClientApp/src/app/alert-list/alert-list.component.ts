@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { AlertListService } from './alert-list.service';
 import { data } from './alert-list';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-alert-list',
@@ -11,7 +12,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 
 export class AlertListComponent implements OnInit {
 
-  constructor(private _AlertListService: AlertListService, public dialog: MatDialog) { }
+  constructor(
+    private _AlertListService: AlertListService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
+  ) { }
 
   error: string;
   AlertMessage: string;
@@ -39,11 +44,6 @@ export class AlertListComponent implements OnInit {
   setVariables(records) {
     this.Message = records.Message;
     this.ID = records.AlertCustomMessageID;
-
-    if (this.Message[this.Message.length - 1] != "+") {
-      this.Message.push("+");
-      this.ID.push(-1);
-    }
   }
 
   //Prepopulate Message
@@ -66,9 +66,29 @@ export class AlertListComponent implements OnInit {
   }
 
   async submitAlert(value: string) {
-    await this._AlertListService.SubmitAlerts(value).toPromise();
-    console.log(value);
+    if (value !== '') {
+      await this._AlertListService.SubmitAlerts(value).toPromise();
+      console.log(value);
+
+      if (value !== undefined) {
+        this._snackBar.open('Submited', 'Close', {
+          duration: 3000,
+        });
+      }
+
+      else {
+        this._snackBar.open('Please type an alert to send.', 'Close', {
+          duration: 3000,
+        });
+      }
+    }
+    else {
+      this._snackBar.open('Please type an alert to send.', 'Close', {
+        duration: 3000,
+      });
+    }
   }
+
 }
 
 //// PopUp Stuff
@@ -82,7 +102,9 @@ export class AlertListPopUpComponent {
   constructor(
     public dialogRef: MatDialogRef<AlertListPopUpComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private _AlertListService: AlertListService) { }
+    private _AlertListService: AlertListService,
+    private _snackBar: MatSnackBar
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -92,6 +114,7 @@ export class AlertListPopUpComponent {
     console.log(value);
     await this._AlertListService.DeleteAlerts(value).toPromise();
     this.data.Message = "";
+    this.onNoClick();
   }
 
   async addAlert(value: string) {
@@ -107,6 +130,7 @@ export class AlertListPopUpComponent {
       await this._AlertListService.UpdateAlerts(ID, Message).toPromise();
       this.data.Message = Message;
     }
+    this.onNoClick();
   }
 }
 

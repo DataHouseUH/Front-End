@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwnerFormService } from '../owner-form/owner-form.service';
 import { FrontDisplayService } from '../front-display/front-display.service';
+
 
 @Component({
   selector: 'app-not-prequal',
@@ -67,6 +68,10 @@ export class NotPrequalComponent implements OnInit {
   setVariables(records) {
     this.DisplayID = records.DisplayID;
     this.UserDisplayName = records.UserDisplayName;
+  }
+
+  Start() {
+    this.router.navigate(['/owner']);
   }
 
 }

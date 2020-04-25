@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, AfterViewInit} from '@angular/core';
 import { FrontDisplayService } from './front-display.service';
+import {newArray} from "@angular/compiler/src/util";
 
 /* Table that retreives data via HTTP */
 @Component({
@@ -16,9 +17,20 @@ export class FrontDisplayComponent implements AfterViewInit {
   data: KioskInfo[] = [];   /* Data to use */
   DisplayID: number[] = [];
   UserDisplayName: string[] = [];
+  PetName: string[] = [];
   StatusName: string[] = [];
   HowManyLoops: any;
-  constructor(private _FrontDisplayService: FrontDisplayService) { }
+  table1: number[] = [];
+  table2: number[] = [];
+
+  constructor(private _FrontDisplayService: FrontDisplayService) {
+    for ( let i = 0; i < 10; i++) {
+          this.table1.push(i);
+  }
+    for ( let i = 10; i < 20; i++) {
+      this.table2.push(i);
+    }
+  }
 
 
 
@@ -50,6 +62,7 @@ export class FrontDisplayComponent implements AfterViewInit {
   setVariables(records) {
     this.DisplayID = records.DisplayID;
     this.UserDisplayName = records.UserDisplayName;
+    this.PetName = records.PetName;
     this.StatusName = records.StatusName;
   }
 
