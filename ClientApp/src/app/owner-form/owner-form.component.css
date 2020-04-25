@@ -42,6 +42,7 @@
 .MicroChipBox {
   margin: 10px;
   width: 66%;
+  padding-bottom: 5px;
   background-color: transparent;
   border-color: #A1834D;
 }
