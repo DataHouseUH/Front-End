@@ -1,5 +1,5 @@
 #logo{
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png");
+  background-image: url("../../assets/img/background_dog.jpg"); 
 }
 
 .Title {
@@ -10,6 +10,13 @@
 .Form {
   background-color: #F1F1F1 !important;
 /*background-color: #646464;*/
+}
+
+.form-group{
+
+  font-family: Poppins, light;
+  font-style: italic;
+
 }
 .phonewrapper {
   display: grid;
@@ -64,9 +71,12 @@ text-align: center;
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%;
-  background: url('https://biegamnaturalnie.pl/wp-content/uploads/2018/07/bieganie-naturalne-psy-biegaja-1024x683.jpg') ;
+  height: 110%;
+  background-image: url("../../assets/img/background_dog.jpg"); 
   filter: blur(8px);
+  background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 
@@ -75,7 +85,9 @@ text-align: center;
   background-color: #dedddc;
   width: 70%;
   height: 100%;
-  font-family: "adobe-clean", sans-serif;
+  font-family: Poppins, italic;
+  border-radius: 10px 10px 10px 10px;
+
 
 }
 .Logo2 {
@@ -95,4 +107,5 @@ text-align: center;
   margin-left: 220px;
   color: whitesmoke;
   font-size: x-large;
+  font-family: Poppins, light;
 }
