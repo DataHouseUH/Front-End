@@ -77,10 +77,10 @@ export class OwnerFormComponent {
     const phone = this.checkinForm.value.phoneNum;
     for ( let i = 0; i < this.checkinForm.value.MorePets.length; i++) {
       console.log(this.checkinForm.value.MorePets[i]);
-      MicroIDS[i] = this.checkinForm.value.MorePets[i].MicoID;
+      MicroIDS[i] = this.checkinForm.value.MorePets[i];
     }
     for ( let i = 0; i < MicroIDS.length; i++) {
-      console.log('test' + MicroIDS[i]);
+      console.log('test' + MicroIDS[i].PetName);
     }
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
