@@ -7,7 +7,7 @@
     <div>
       <mat-form-field class="AlertBox" appearance="outline">
         <textarea matInput placeholder="Owner A came to pick up Pet B" [(ngModel)]="data.Message"></textarea>
-        </mat-form-field>
+      </mat-form-field>
     </div>
 
     <div fxLayout="row" class="PopUpButtons">
@@ -19,9 +19,9 @@
         <button mat-button class="PopUpX" (click)="onNoClick()">Cancel</button>
       </div>
     </div>
-    <div  class="deleteButton" *ngIf="data.ID != -1">
+    <div class="deleteButton" *ngIf="data.ID != -1">
 
-      <button style="background: red;" mat-button (click)="deleteAlert(data.ID)" > Delete </button>
+      <button style="background: red;" mat-button (click)="deleteAlert(data.ID)"> Delete </button>
     </div>
   </div>
 </div>
