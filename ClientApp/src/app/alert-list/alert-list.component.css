@@ -43,14 +43,22 @@
 }
 
 .SubmitButton {
-  justify-content: center !important;
+  justify-content: center;
   background-color: #55411C;
   color: white;
-  align-self:center;
+  height: 55px;
+  width: 110px;
+  font-size: x-large;
+  font-family: Poppins, regular;
+  font-size: 20px;
+  box-shadow: 0px 5px 0px #9d8455;
+  margin-left: 15px;
 }
 
 .container {
   background-color: #F1F1F1;
+  font-family: Poppins, light;
+  font-size: 25px;
 }
 
 /*For pop up*/
@@ -63,14 +71,7 @@
 .PopUpInput {
   margin: 5px;
 }
-deleteButton{
-  position: absolute;
-  color: red;
-  bottom: 2px;
-  left: 0px;
-  size: 10px;
 
-}
 .PopUpX {
   float: right;
   margin: 5px;
@@ -78,12 +79,22 @@ deleteButton{
 
 .PopUpButtons {
   justify-content: center;
+  background-color: #55411C;
+  color: white;
+  height: 45px;
+  width: 110px;
+  font-size: x-large;
+  font-family: Poppins, regular;
+  font-size: 20px;
+  box-shadow: 0px 3px 0px #9d8455;
+  margin-left: 15px;
 }
 
 .Logo {
+  margin: 15px;
   color: black;
   font-size: x-large;
-  background-color: #FBFBFB;
+  font-family: Poppins, light;
 }
 
 .Logo2 {
