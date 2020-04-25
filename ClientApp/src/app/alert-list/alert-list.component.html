@@ -26,8 +26,11 @@
             <button mat-button (click)="openDialog(Message, ID[i])"><mat-icon [ngStyle]="{'color':'white'}">edit</mat-icon></button>
           </div>
         </div>
+        <div>
+          <button class="Plus" mat-button (click)="openDialog('', -1)"><mat-icon [ngStyle]="{'color':'white'}">add</mat-icon></button>
+        </div>
+        </div>
       </div>
-    </div>
 
     <div class="container">
       <mat-form-field class="AlertBox" appearance="outline">

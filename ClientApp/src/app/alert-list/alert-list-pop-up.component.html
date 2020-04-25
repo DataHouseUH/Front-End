@@ -11,7 +11,7 @@
     </div>
 
     <div fxLayout="row" class="PopUpButtons">
-      <div class="CustomAlertPopUpBox">
+      <div class="CustomAlertPopUpBox" *ngIf="data.ID != -1">
         <button mat-button (click)="deleteAlert(data.ID)"> Delete </button>
       </div>
       <div class="CustomAlertPopUpBox">

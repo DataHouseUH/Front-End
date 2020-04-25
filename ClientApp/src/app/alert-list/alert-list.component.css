@@ -31,6 +31,12 @@
   color: white;
 }
 
+.Plus {
+  background-color: #55411C;
+  color: white;
+  margin: 20px;
+}
+
 .AlertBox {
   margin: 10px;
   width: 100%;
