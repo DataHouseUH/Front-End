@@ -69,7 +69,7 @@ export class OwnerFormComponent {
   onSubmit() {
     // TODO: Implement function to process new pet microchip IDs
     event.preventDefault();
-    const MicroIDS = [];
+    const multipet = [];
     // Get Values from form
     const firstname = this.checkinForm.value.firstName;
     const lastname = this.checkinForm.value.lastName;
@@ -77,10 +77,10 @@ export class OwnerFormComponent {
     const phone = this.checkinForm.value.phoneNum;
     for ( let i = 0; i < this.checkinForm.value.MorePets.length; i++) {
       console.log(this.checkinForm.value.MorePets[i]);
-      MicroIDS[i] = this.checkinForm.value.MorePets[i];
+      multipet[i] = this.checkinForm.value.MorePets[i];
     }
-    for ( let i = 0; i < MicroIDS.length; i++) {
-      console.log('test' + MicroIDS[i].PetName);
+    for ( let i = 0; i < multipet.length; i++) {
+      console.log('test' + multipet[i].PetName);
     }
     const email = this.checkinForm.value.email;
     const MicroID = this.checkinForm.value.MicoID;
@@ -110,10 +110,10 @@ export class OwnerFormComponent {
 
         if (this.Status[0] === 1) {
           this._OwnerFormService.Is_Qualified = true;
-          this.router.navigate(['/qualify']);
+          //this.router.navigate(['/qualify']);
         } else if (this.Status[0] === 0) {
           this._OwnerFormService.Is_Qualified = false;
-          this.router.navigate(['/noqualify']);
+          //this.router.navigate(['/noqualify']);
         } else {
           this._snackBar.open(this.Error[0], 'Close', {
             duration: 2000,
@@ -123,6 +123,41 @@ export class OwnerFormComponent {
       },
       err => console.error(err)
     );
+    if ( multipet.length > 0) {
+        for ( let i = 0; i < multipet.length; i++) {
+          this._OwnerFormService.isAuthorized(lastname, firstname, multipet[i].PetName, multipet[i].MicoID, email, phone).subscribe(
+            data => {
+              this.records = data;
+              console.log(data);
+              this.setVariables(this.records);
+              console.log(data);
+
+              this._OwnerFormService.UserID = this.UserID[0];
+
+              this._OwnerFormService.LastName = lastname;
+              this._OwnerFormService.FirstName = firstname;
+              this._OwnerFormService.PetName = multipet[i].PetName;
+              this._OwnerFormService.MicroChipID = multipet[i].MicoID;
+              this._OwnerFormService.Email = email;
+              this._OwnerFormService.PhoneNumber = phone;
+
+              if (this.Status[0] === 1) {
+                this._OwnerFormService.Is_Qualified = true;
+               // this.router.navigate(['/qualify']);
+              } else if (this.Status[0] === 0) {
+                this._OwnerFormService.Is_Qualified = false;
+               // this.router.navigate(['/noqualify']);
+              } else {
+                this._snackBar.open(this.Error[0], 'Close', {
+                  duration: 2000,
+                });
+              }
+
+            },
+            err => console.error(err)
+          );
+        }
+    }
     // if(firstname!=="" && lastname!=="" && phone!=="")
     // {
     // this.router.navigate(['/search']);
