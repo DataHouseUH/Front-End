@@ -33,6 +33,14 @@ export class OwnerFormService {
 
   UserID: number = 5;
   Is_Qualified: boolean = false;
+
+  LastName: string;
+  FirstName: string;
+  PetName: string;
+  MicroChipID: string;
+  Email: string;
+  PhoneNumber: string;
+
   //public DeleteAlerts(AlertCustomMessageID) {
   //  return this.http.post(this.ROOT_URL + '/Delete', { AlertCustomMessageID: AlertCustomMessageID })
   //}

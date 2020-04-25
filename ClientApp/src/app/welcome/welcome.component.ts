@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { OwnerFormService } from '../owner-form/owner-form.service';
+
 @Component({
   selector: 'app-welcome', 
   templateUrl: './welcome.component.html',
@@ -7,13 +9,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-    private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public _OwnerFormService: OwnerFormService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   Start() {
+
+    this._OwnerFormService.LastName = '';
+    this._OwnerFormService.FirstName = '';
+    this._OwnerFormService.PetName = '';
+    this._OwnerFormService.MicroChipID = '';
+    this._OwnerFormService.Email = '';
+    this._OwnerFormService.PhoneNumber = '';
+
+
     this.router.navigate(['/owner']);
   }
 

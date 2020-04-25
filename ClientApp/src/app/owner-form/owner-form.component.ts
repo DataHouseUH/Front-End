@@ -39,13 +39,13 @@ export class OwnerFormComponent {
   // When load, default values...
   createContactForm() {
     this.checkinForm = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      phoneNum: [''],
-      MicoID: [''],
-      petname: [''],
-      email: [''],
-      newMicrochip: [''],
+      firstName: this._OwnerFormService.FirstName,
+      lastName: this._OwnerFormService.LastName,
+      phoneNum: this._OwnerFormService.PhoneNumber,
+      MicoID: this._OwnerFormService.MicroChipID,
+      petname: this._OwnerFormService.PetName,
+      email: this._OwnerFormService.Email,
+      newMicrochip: this._OwnerFormService.MicroChipID,
       MorePets: this.formBuilder.array([])
     });
   }
@@ -100,6 +100,14 @@ export class OwnerFormComponent {
         console.log(data);
 
         this._OwnerFormService.UserID = this.UserID[0];
+
+        this._OwnerFormService.LastName = lastname;
+        this._OwnerFormService.FirstName = firstname;
+        this._OwnerFormService.PetName = petname;
+        this._OwnerFormService.MicroChipID = MicroID;
+        this._OwnerFormService.Email = email;
+        this._OwnerFormService.PhoneNumber = phone;
+
         if (this.Status[0] === 1) {
           this._OwnerFormService.Is_Qualified = true;
           this.router.navigate(['/qualify']);

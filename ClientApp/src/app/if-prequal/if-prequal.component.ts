@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { OwnerFormService } from '../owner-form/owner-form.service';
 import { FrontDisplayService } from '../front-display/front-display.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-if-prequal',
@@ -67,6 +67,11 @@ export class IfPrequalComponent implements OnInit {
   setVariables(records) {
     this.DisplayID = records.DisplayID;
     this.UserDisplayName = records.UserDisplayName;
+  }
+
+
+  Start() {
+    this.router.navigate(['/owner']);
   }
 
 }
