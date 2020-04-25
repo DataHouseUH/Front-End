@@ -5,6 +5,9 @@
         <div class="Logo2">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
         </div>
+        <div class="Logo2">
+          <img src="assets/img/ag_hi.png" style="width:50px;height:50px;">
+        </div>
         <div fxLayout="column">
           <div>
             State of Hawaii
@@ -16,6 +19,9 @@
       </div>
     </div>
     <div class="container">
+      <div>
+        &nbsp;
+     </div>
       <b>Please select alert:</b>
       <div fxLayout="row wrap">
         <div *ngFor="let Message of Message; let i = index" class="CustomAlert">
@@ -35,10 +41,14 @@
         <textarea matInput placeholder="Owner A came to pick up Pet B" [(ngModel)]="AlertMessage">{{AlertMessage}}</textarea>
       </mat-form-field>
     </div>
+    
     <div class="SubmitButton2">
       <div class="SubmitButton2">
         <button mat-button (click)="submitAlert(AlertMessage)" class="SubmitButton">Submit</button>
       </div>
+      <div>
+        &nbsp;
+     </div>
     </div>
   </div>
 </div>
