@@ -62,7 +62,7 @@ export class OwnerFormComponent {
     //this.newPet.push(this.formBuilder.control(''));
    //this.changesDetector.detectChanges();
     const newpets = this.checkinForm.controls.MorePets as FormArray;
-    newpets.push(this.formBuilder.group({MicoID: [''] }));
+    newpets.push(this.formBuilder.group({MicoID: [''], PetName: ['']}));
     //this.pets.push('newpet');
   }
 
@@ -111,7 +111,7 @@ export class OwnerFormComponent {
             duration: 2000,
           });
         }
-        
+
       },
       err => console.error(err)
     );

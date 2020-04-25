@@ -43,7 +43,11 @@
             <input type="text" placeholder="Type here" style="width:120%" class="form-control" id="firstname" formControlName="firstName" required>
           </div>
         </div>
-
+        <!-- Pet Name-->
+        <div class="form-group">
+          <label for="petname">Pet Name</label>
+          <input type="text" class="form-control" placeholder="Type here" formControlName="petname" id="petname">
+        </div>
         <!-- Pet Microchip-->
         <div class="form-group">
 
@@ -53,8 +57,10 @@
 
           <div formArrayName="MorePets" *ngFor="let pet of newPet.controls; let i = index">
             <ng-container [formGroupName]="i">
-              <label for="newMicrochip">Pet Microchip ID</label>
+              <label for="newMicrochip">Pet Name</label>
               <input type="text" class="form-control" placeholder="Type here" formControlName="MicoID" id="newMicrochip">
+              <label for="newMicrochip">Pet Microchip ID</label>
+              <input type="text" class="form-control" placeholder="Type here" formControlName="PetName" id="newpetname">
             </ng-container>
           </div>
           <p>Want to add another pet?</p>
@@ -73,11 +79,7 @@
           <input type="text" class="form-control" placeholder="Type here" formControlName="email" id="email" required>
         </div>
 
-        <!-- Pet Name-->
-        <div class="form-group">
-          <label for="petname">Pet Name</label>
-          <input type="text" class="form-control" placeholder="Type here" formControlName="petname" id="petname">
-        </div>
+
 
         <!-- Submit form -->
         <!---button type="submit" class="btn btn-success">Submit<!/button-->
