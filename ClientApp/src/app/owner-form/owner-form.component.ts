@@ -40,7 +40,7 @@ export class OwnerFormComponent {
   // When load, default values...
   createContactForm() {
     this.checkinForm = this.formBuilder.group({
-      firstName: this._OwnerFormService.FirstName,
+      firstName: [this._OwnerFormService.FirstName],
       lastName: this._OwnerFormService.LastName,
       phoneNum: [this._OwnerFormService.PhoneNumber, [Validators.minLength(11), Validators.maxLength(11)]],
       MicoID: [this._OwnerFormService.MicroChipID],

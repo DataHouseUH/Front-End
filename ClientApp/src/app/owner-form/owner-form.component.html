@@ -32,6 +32,9 @@
           <div class="form-group col-md-5">
             <label for="lastname">Last Name</label>
             <input type="text"  class="form-control" style="width:120%" id="lastname" formControlName="lastName" required>
+            <div *ngIf="f.lastName.invalid && (f.lastName.touched || isSubmitted)" class="alert alert-danger">
+              <p>please enter your last name</p>
+            </div>
             <!-- <div class="alert alert-danger">
          TODO: Implement error message if input has been left blank after submission
         This field is required
@@ -41,6 +44,9 @@
           <div class="form-group col-md-5" style="margin-left:90px;">
             <label for="firstname">First Name</label>
             <input type="text"  style="width:120%" class="form-control" id="firstname" formControlName="firstName" required>
+            <div *ngIf="f.firstName.invalid && (f.firstName.touched || isSubmitted)" class="alert alert-danger">
+              <p>please enter your first name</p>
+            </div>
           </div>
         </div>
         <!-- Pet Name-->
