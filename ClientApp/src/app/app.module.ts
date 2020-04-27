@@ -28,6 +28,7 @@ import { AlertListService } from './alert-list/alert-list.service';
 import { OwnerFormService } from './owner-form/owner-form.service';
 import { FrontDisplayService } from './front-display/front-display.service';
 import { BackDisplayService } from './back-display/back-display.service';
+import { LoginAuthComponent } from './login-auth/login-auth.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BackDisplayService } from './back-display/back-display.service';
     NotPrequalComponent,
     FrontDisplayComponent,
     BackDisplayComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoginAuthComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -61,7 +63,8 @@ import { BackDisplayService } from './back-display/back-display.service';
       { path: 'noqualify', component: NotPrequalComponent },
       { path: 'front', component: FrontDisplayComponent },
       { path: 'back', component: BackDisplayComponent },
-      { path: 'welcome', component: WelcomeComponent }
+      { path: 'welcome', component: WelcomeComponent },
+      { path: 'login', component: LoginAuthComponent }
     ]),
     BrowserAnimationsModule,
     MaterialModule,
