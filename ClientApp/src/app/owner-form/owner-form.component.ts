@@ -122,10 +122,10 @@ export class OwnerFormComponent {
 
           if (this.Status[0] === 1) {
             this._OwnerFormService.Is_Qualified = true;
-            //this.router.navigate(['/qualify']);
+            this.router.navigate(['/qualify']);
           } else if (this.Status[0] === 0) {
             this._OwnerFormService.Is_Qualified = false;
-            //this.router.navigate(['/noqualify']);
+            this.router.navigate(['/noqualify']);
           } else {
             this._snackBar.open(this.Error[0], 'Close', {
               duration: 2000,

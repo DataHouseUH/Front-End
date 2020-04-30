@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BackDisplayService } from './back-display.service';
-
+import { CommonModule } from '@angular/common';
 import { BackDisplayTbl, AlertTbl } from './back-display';
 import { Time } from '@angular/common';
 import { formatDate } from '@angular/common';
@@ -31,6 +31,8 @@ export class BackDisplayComponent {
   Colour: string[] = [];
   HowManyLoops: any;
   table: number[] = [];
+  outoftable: boolean;
+  outtablelist: number[] = [];
 
   ngOnInit() {
     this.getBackDisplayItems();
@@ -59,6 +61,8 @@ export class BackDisplayComponent {
   }
 
   setVariables(records) {
+
+    this.outoftable = (this.UserDisplayName.length > 10);
     this.BackDisplayID = records.BackDisplayID;
     this.UserDisplayName = records.UserDisplayName;
     this.PetName = records.PetName;

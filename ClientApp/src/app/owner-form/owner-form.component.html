@@ -52,7 +52,10 @@
         <!-- Pet Name-->
         <div class="form-group">
           <label for="petname">Pet Name</label>
-          <input type="text" class="form-control" formControlName="petname" id="petname">
+          <input type="text" class="form-control" formControlName="petname" id="petname" required>
+          <div *ngIf="f.petname.invalid && (f.petname.touched || isSubmitted)" class="alert alert-danger">
+            <p>please enter your pet name</p>
+          </div>
         </div>
         <!-- Pet Microchip-->
         <div class="form-group">
@@ -77,7 +80,7 @@
         <!-- Phone Number -->
         <div class="form-group">
           <label for="phoneNum">Phone Number</label>
-          <input type="number"  style="width:100%" class="form-control" max="99999999999" formControlName="phoneNum" id="phoneNum" required>
+          <input type="number"  style="width:100%" class="form-control" max="3" formControlName="phoneNum" id="phoneNum" required>
           <div *ngIf="f.phoneNum.invalid && (f.phoneNum.touched || isSubmitted)" class="alert alert-danger">
             <p>phone number must be 11 digits</p>
           </div>
