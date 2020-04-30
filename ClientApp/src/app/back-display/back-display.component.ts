@@ -29,6 +29,7 @@ export class BackDisplayComponent {
   Is_Released: boolean[] = [];
   Is_Completed: boolean[] = [];
   Colour: string[] = [];
+  ApplicationNumber: string[] = [];
   HowManyLoops: any;
   table: number[] = [];
 
@@ -68,6 +69,7 @@ export class BackDisplayComponent {
     this.Is_Released = records.Is_Released;
     this.Colour = records.Colour;
     this.Is_Completed = records.Is_Completed;
+    this.ApplicationNumber = records.ApplicationNumber;
   }
 
   resultsLength = 0;
