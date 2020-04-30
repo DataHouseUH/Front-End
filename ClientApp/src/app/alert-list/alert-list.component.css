@@ -101,3 +101,124 @@ deleteButton {
   background-color: #F1F1F1;
   align-content: center !important;
 }
+
+/* Back Display CSS */
+.image {
+  background-image: url("../../assets/img/background_dog.jpg");
+  /* Add the blur effect */
+
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background: rgba(0,0,0,0.3); */
+}
+
+table {
+  width: 100%;
+}
+.table_layout{
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  column-gap: 1px;
+  row-gap: 1em;
+}
+.alert-card {
+  margin: 20px;
+  padding: 0px;
+}
+
+/*This is for the cards to display vertical*/
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  /*vh is view high*/
+  background-color: #F1F1F1;
+}
+
+.flex-parent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.text-center {
+  justify-content: center;
+}
+
+.PopUpX {
+  justify-content: right;
+
+}
+.close_button{
+  position: absolute;
+  color: grey;
+  top: 0px;
+  right: 0px;
+  size: 10px;
+}
+.Time {
+
+  font-weight: bolder;
+  left: 0px;
+  top: 0px;
+}
+
+
+.Logo {
+  margin: 10px;
+  color: whitesmoke;
+  font-size: x-large;
+  font-family: Poppins, light;
+}
+
+.Logo2 {
+  margin: 10px;
+}
+
+.module {
+  position: relative;
+}
+
+.module::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/img/background_dog.jpg");
+  filter: blur(8px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container2 {
+  position: relative;
+  justify-content: center;
+}
+
+.TableHead {
+  background-color: #F1F1F1;
+  text-align: center;
+}
+
+.TableBody {
+  background-color: #F1F1F1;
+  font-weight: bold;
+  text-align: center;
+}

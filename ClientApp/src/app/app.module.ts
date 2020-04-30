@@ -13,12 +13,13 @@ import { TestComponent } from './test/home.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { AlertListComponent, AlertListPopUpComponent } from './alert-list/alert-list.component';
+import { AlertListComponent, AlertListPopUpComponent, BackDisplayComponent2 } from './alert-list/alert-list.component';
 import { OwnerFormComponent } from './owner-form/owner-form.component';
 import { IfPrequalComponent } from './if-prequal/if-prequal.component';
 import { NotPrequalComponent } from './not-prequal/not-prequal.component';
 import { FrontDisplayComponent } from './front-display/front-display.component';
 import { BackDisplayComponent } from './back-display/back-display.component';
+
 import { WelcomeComponent } from './welcome/welcome.component'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
