@@ -3,6 +3,8 @@ import { AlertListService } from './alert-list.service';
 import { data } from './alert-list';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BackDisplayService } from "../back-display/back-display.service";
+import { BackDisplayTbl } from "../back-display/back-display";
 
 @Component({
   selector: 'app-alert-list',
@@ -12,12 +14,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class AlertListComponent implements OnInit {
 
+  items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
+
   constructor(
     private _AlertListService: AlertListService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
-  ) { }
+    private _snackBar: MatSnackBar,
+    private _BackDisplayService: BackDisplayService
+  ) { for ( let i = 0; i < 10; i++) {this.table.push(i); } }
 
+  displayedColumns: string[] = ['Last, First', 'Pet ID', 'Arrived', 'Inspected', 'Release'];
+  data: BackDisplayTbl[];
+  BackDisplayID: number[] = [];
+  UserDisplayName: string[] = [];
+  PetName: string[] = [];
+  MicroChipID: string[] = [];
+  Is_Arrived: boolean[] = [];
+  Is_Inspected: boolean[] = [];
+  Is_Released: boolean[] = [];
+  Is_Completed: boolean[] = [];
+  Colour: string[] = [];
+  ApplicationNumber: string[] = [];
+  HowManyLoops: any;
+  table: number[] = [];
+  outoftable: boolean;
+  outtablelist: number[] = [];
   error: string;
   AlertMessage: string;
   records: data[];
@@ -26,6 +47,12 @@ export class AlertListComponent implements OnInit {
 
   ngOnInit() {
     this.getAlertItems();
+    this.getBackDisplayItems();
+    this.getAlertItems();
+    this.HowManyLoops = setInterval(() => {
+      this.getBackDisplayItems();
+      this.getAlertItems();
+  }, 5000);
   }
 
   getAlertItems(): void {
@@ -39,11 +66,63 @@ export class AlertListComponent implements OnInit {
     );
   }
 
+  ngOnDestroy() {
+    if (this.HowManyLoops) {
+      clearInterval(this.HowManyLoops);
+    }
+  }
 
+  getBackDisplayItems(): void {
+    this._BackDisplayService.getBackDisplay().subscribe(
+      data => {
+        this.data = data
+        console.log(this.data)
+        this.setVariables(this.data)
+      },
+      err => console.error(err)
+    );
+  }
 
   setVariables(records) {
     this.Message = records.Message;
     this.ID = records.AlertCustomMessageID;
+    this.outoftable = (this.UserDisplayName.length > 10);
+    this.BackDisplayID = records.BackDisplayID;
+    this.UserDisplayName = records.UserDisplayName;
+    this.PetName = records.PetName;
+    this.MicroChipID = records.MicroChipID;
+    this.Is_Arrived = records.Is_Arrived;
+    this.Is_Inspected = records.Is_Inspected;
+    this.Is_Released = records.Is_Released;
+    this.Colour = records.Colour;
+    this.Is_Completed = records.Is_Completed;
+    this.ApplicationNumber = records.ApplicationNumber;
+  }
+
+  UpdateIs_Arrived(event, i) {
+    this.UpdateStatus(this.BackDisplayID[i], event.checked, 'NULL', 'NULL', 'NULL')
+  }
+
+  UpdateIs_Inspected(event, i) {
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', event.checked, 'NULL', 'NULL')
+  }
+
+  UpdateIs_Released(event, i) {
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', 'NULL', event.checked, 'NULL')
+  }
+
+  UpdateIs_Completed(event, i) {
+    console.log("Ï am here")
+    this.UpdateStatus(this.BackDisplayID[i], 'NULL', 'NULL', 'NULL', event.checked)
+  }
+
+  async UpdateStatus(BackDisplayID: number, Is_Arrived: any, Is_Inspected: any, Is_Released: any, Is_Completed: any) {
+    console.log(BackDisplayID)
+    console.log(Is_Arrived)
+    console.log(Is_Inspected)
+    console.log(Is_Released)
+    await this._BackDisplayService.UpdateBackDisplay(BackDisplayID, Is_Arrived, Is_Inspected, Is_Released, Is_Completed).toPromise();
+    this.getBackDisplayItems();
   }
 
   //Prepopulate Message
