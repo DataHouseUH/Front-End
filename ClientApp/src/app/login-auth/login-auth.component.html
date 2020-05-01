@@ -1,7 +1,28 @@
 <!-- Login authentication page for AQ staff -->
-<div class="page"></div>
+<div class="module">
+  <div class="container2">
+    <div fxLayout="column">
 
-<div class="container">
+<div fxLayout="row" class="Logo">
+  <div class="Logo2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
+  </div>
+  <div class="Logo2">
+    <img src="assets/img/ag_hi.png" style="width:50px;height:50px;">
+  </div>
+  <div fxLayout="column">
+    <div style="font-weight:300;">
+      State of Hawaii
+    </div>
+    <div>
+      <b style="font-weight:500;">Animal Industry Division</b>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div fxlauout="column" class="container">
   <h2>Sign In</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -17,4 +38,4 @@
       </div>
   </form>
 </div>
-
+</div>

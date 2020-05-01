@@ -1,5 +1,4 @@
 .container {
-  margin-top: 150px;
   padding-top: 25px;
   padding-bottom: 25px;
   position: relative;
@@ -9,17 +8,50 @@
   border-radius: 10px 10px 10px 10px;
 }
 
-.page {
-    content: "";
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../../assets/img/background_dog.jpg");
-    filter: blur(8px);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.container2 {
+  position: relative;
+  padding-left: 200px;
+  padding-top: 100px;
 }
 
+.module {
+  position: relative;
+}
+
+.module::before {
+  content: "";
+  position: absolute;
+  top: 50;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-image: url("../../assets/img/background_dog.jpg");
+  filter: blur(8px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Logo {
+  margin: 5px;
+  margin-top: 10px;
+  color: whitesmoke;
+  font-size: x-large;
+  font-family: Poppins, light;
+}
+
+.Logo2 {
+  margin-right: 10px;
+  margin-top: 10px;}
+
+.line {
+  padding-top: 20px;
+  position: absolute;
+  margin-left: 310px;
+  display: block;
+  font-size: 35px;
+}
+
+.middle {
+  text-align: center;
+}
