@@ -1,0 +1,25 @@
+.container {
+  margin-top: 150px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  position: relative;
+  background-color: #dedddc;
+  width: 40%;
+  font-family: "adobe-clean", sans-serif;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.page {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/img/background_dog.jpg");
+    filter: blur(8px);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

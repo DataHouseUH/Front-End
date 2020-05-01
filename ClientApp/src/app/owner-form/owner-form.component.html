@@ -46,10 +46,13 @@
           <!-- First Name -->
           <div class="form-group col-md-5" style="margin-left:90px;">
             <label for="firstname">First Name</label>
+
             <input type="text"  style="width:120%" class="form-control" id="firstname" formControlName="firstName" required>
             <div *ngIf="f.firstName.invalid && (isSubmitted)" class="alert alert-danger">
               <p>please enter your first name</p>
             </div>
+
+
           </div>
         </div>
         <!-- Pet Name-->
@@ -69,17 +72,23 @@
 
           <div formArrayName="MorePets" *ngFor="let pet of newPet.controls; let i = index">
             <ng-container [formGroupName]="i">
+
               <br>
               <div >
                 <button mat-button class="close_button"  style=" position: absolute;color: grey; right: 0px; size: 10px;" (click)="close()">X</button>
               </div>
-              <label for="newMicrochip">Pet Name</label>
+
+
+              <label for="newMicrochip" style="margin-top: 15px;">Pet Name</label>
               <input type="text" class="form-control" formControlName="PetName" id="newpetname">
+              <label for="newMicrochip" style="margin-top: 15px;">Pet Microchip ID</label>
+
+
               <label for="newMicrochip">Pet Microchip ID</label>
               <input type="text" class="form-control" formControlName="MicoID" id="newMicrochip">
             </ng-container>
           </div>
-          <p>Want to add another pet?</p>
+          <p style="margin-top: 15px;">Want to add another pet?</p>
           <button type="button" (click)="addPet()" value="Add pet" class="btn btn-secondary btn-medium" style="margin-bottom: 5px; margin-top: 5px; padding-left: 30px; padding-right: 30px; padding-top: 10px; padding-bottom: 10px">Add Another Pet</button>
         </div>
 
