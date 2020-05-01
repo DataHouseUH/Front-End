@@ -12,7 +12,7 @@
 }
 
 .Name {
-  font-family: Poppins, semi-bold;
+  font-family: Poppins, regular;
   font-weight: bold;
   font-size: 55px;
   background-color: #dedddc;
@@ -34,8 +34,8 @@
   font-style: italic;
 }
 
-.Front-Display {
-  text-align: right;
+.Front-Display{
+  text-align:right;
 }
 
 .Number {
@@ -74,6 +74,7 @@
 
 .container {
   position: relative;
+
 }
 
 .module {

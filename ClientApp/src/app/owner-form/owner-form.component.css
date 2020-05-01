@@ -1,5 +1,5 @@
 #logo{
-  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png");
+  background-image: url("../../assets/img/background_dog.jpg"); 
 }
 
 .Title {
@@ -98,6 +98,7 @@ background-size: cover;
   margin-left: 220px;
   color: whitesmoke;
   font-size: x-large;
+  font-family: Poppins, light;
 }
 .form-header {
   padding: 2% 12px 12px;

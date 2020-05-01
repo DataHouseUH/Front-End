@@ -40,10 +40,12 @@
 .AlertBox {
   margin: 10px;
   width: 100%;
+  font-family: Poppins;
+  font-size: 15px;
 }
 
 .SubmitButton {
-  justify-content: center !important;
+  justify-content: center;
   background-color: #55411C;
   color: white;
   align-self: center;
@@ -51,6 +53,9 @@
 
 .container {
   background-color: #F1F1F1;
+  font-family: Poppins, light;
+  font-size: 25px;
+  
 }
 
 /*For pop up*/
@@ -82,9 +87,10 @@ deleteButton {
 }
 
 .Logo {
+  margin: 15px;
   color: black;
   font-size: x-large;
-  background-color: #FBFBFB;
+  font-family: Poppins, light;
 }
 
 .Logo2 {

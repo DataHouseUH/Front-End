@@ -78,6 +78,9 @@
       <div class="Logo2">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Seal_of_the_State_of_Hawaii.svg/1200px-Seal_of_the_State_of_Hawaii.svg.png" style="width:50px;height:50px;">
       </div>
+      <div class="Logo2">
+        <img src="assets/img/ag_hi.png" style="width:50px;height:50px;">
+      </div>
       <div fxLayout="column">
         <div>
           State of Hawaii
@@ -99,13 +102,14 @@
               <th>Inspected</th>
               <th>Release</th>
               <th>Completed</th>
+              <th>Application Number</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let i of table" [style.background-color]="'#' + Colour[i]" class="TableBody">
               <td>{{ UserDisplayName[i] }}</td>
               <td>{{ PetName[i] }} <br /> {{MicroChipID[i]}} </td>
-              <td >
+              <td>
                 <mat-checkbox *ngIf="UserDisplayName[i]!=null" [(ngModel)]=Is_Arrived[i]
                               (change)="UpdateIs_Arrived($event, i)">
                 </mat-checkbox>
@@ -125,6 +129,7 @@
                               (change)="UpdateIs_Completed($event, i)">
                 </mat-checkbox>
               </td>
+              <td>{{ ApplicationNumber[i] }}</td>
             </tr>
           </tbody>
           <tbody *ngIf="outoftable" >
