@@ -23,7 +23,7 @@
     <div>
 
   <div>
-    &nbsp;&nbsp; 
+    &nbsp;&nbsp;
  </div>
 
 
@@ -35,7 +35,7 @@
           <div class="form-group col-md-5">
             <label for="lastname">Last Name</label>
             <input type="text"  class="form-control" style="width:120%" id="lastname" formControlName="lastName" required>
-            <div *ngIf="f.lastName.invalid && (f.lastName.touched || isSubmitted)" class="alert alert-danger">
+            <div *ngIf="f.lastName.invalid && (isSubmitted)" class="alert alert-danger">
               <p>please enter your last name</p>
             </div>
             <!-- <div class="alert alert-danger">
@@ -47,7 +47,7 @@
           <div class="form-group col-md-5" style="margin-left:90px;">
             <label for="firstname">First Name</label>
             <input type="text"  style="width:120%" class="form-control" id="firstname" formControlName="firstName" required>
-            <div *ngIf="f.firstName.invalid && (f.firstName.touched || isSubmitted)" class="alert alert-danger">
+            <div *ngIf="f.firstName.invalid && (isSubmitted)" class="alert alert-danger">
               <p>please enter your first name</p>
             </div>
           </div>
@@ -56,7 +56,7 @@
         <div class="form-group">
           <label for="petname">Pet Name</label>
           <input type="text" class="form-control" formControlName="petname" id="petname" required>
-          <div *ngIf="f.petname.invalid && (f.petname.touched || isSubmitted)" class="alert alert-danger">
+          <div *ngIf="f.petname.invalid && (isSubmitted)" class="alert alert-danger">
             <p>please enter your pet name</p>
           </div>
         </div>
@@ -69,10 +69,11 @@
 
           <div formArrayName="MorePets" *ngFor="let pet of newPet.controls; let i = index">
             <ng-container [formGroupName]="i">
+              <br>
               <label for="newMicrochip">Pet Name</label>
-              <input type="text" class="form-control" formControlName="MicoID" id="newMicrochip">
-              <label for="newMicrochip">Pet Microchip ID</label>
               <input type="text" class="form-control" formControlName="PetName" id="newpetname">
+              <label for="newMicrochip">Pet Microchip ID</label>
+              <input type="text" class="form-control" formControlName="MicoID" id="newMicrochip">
             </ng-container>
           </div>
           <p>Want to add another pet?</p>
@@ -84,7 +85,7 @@
         <div class="form-group">
           <label for="phoneNum">Phone Number</label>
           <input type="number"  style="width:100%" class="form-control" max="3" formControlName="phoneNum" id="phoneNum" required>
-          <div *ngIf="f.phoneNum.invalid && (f.phoneNum.touched || isSubmitted)" class="alert alert-danger">
+          <div *ngIf="f.phoneNum.invalid && ( isSubmitted)" class="alert alert-danger">
             <p>phone number must be 11 digits</p>
           </div>
         </div>
@@ -92,7 +93,7 @@
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="text" class="form-control" formControlName="email" id="email" >
-          <div *ngIf=" f.email.invalid && (f.email.touched || isSubmitted)" class="alert alert-danger">
+          <div *ngIf=" f.email.invalid && (isSubmitted)" class="alert alert-danger">
             <p>Email is invalid</p>
             <br>
             <p>Example: John@gmail.com</p>
