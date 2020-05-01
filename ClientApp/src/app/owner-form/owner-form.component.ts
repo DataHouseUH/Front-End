@@ -72,7 +72,10 @@ export class OwnerFormComponent {
     newpets.push(this.formBuilder.group({MicoID: [''], PetName: ['']}));
     //this.pets.push('newpet');
   }
-
+  close(){
+    const newpets = this.checkinForm.controls.MorePets as FormArray;
+    newpets.removeAt(newpets.length - 1);
+  }
   onSubmit() {
     this.isSubmitted  = true ;
     // TODO: Implement function to process new pet microchip IDs
