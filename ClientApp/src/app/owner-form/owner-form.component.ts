@@ -82,13 +82,13 @@ export class OwnerFormComponent {
     event.preventDefault();
     const multipet = [];
     // Get Values from form
-    const firstname = this.checkinForm.value.firstName;
-    const lastname = this.checkinForm.value.lastName;
-    const petname = this.checkinForm.value.petname;
-    const phone = this.checkinForm.value.phoneNum;
+    const firstname = this.CheckUndefined(this.checkinForm.value.firstName);
+    const lastname = this.CheckUndefined(this.checkinForm.value.lastName);
+    const petname = this.CheckUndefined(this.checkinForm.value.petname);
+    const phone = this.CheckUndefined(this.checkinForm.value.phoneNum);
     for (let i = 0; i < this.checkinForm.value.MorePets.length; i++) {
       console.log(this.checkinForm.value.MorePets[i]);
-      multipet[i] = this.checkinForm.value.MorePets[i];
+      multipet[i] = this.CheckUndefined(this.checkinForm.value.MorePets[i]);
     }
     for (let i = 0; i < multipet.length; i++) {
       console.log('test' + multipet[i].PetName);
@@ -185,5 +185,14 @@ export class OwnerFormComponent {
     this.UserID = records.UserID;
   }
 
+  // To check for undefined
+  // If undefined make it null
+  CheckUndefined(value) {
+    if (value == null) {
+      return null;
+    }
+
+    return value; 
+  }
 }
 

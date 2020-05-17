@@ -2,14 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { LinkService } from '../link.service';
 
 @Injectable()
 
 export class AlertListService {
 
-  readonly ROOT_URL = 'http://127.0.0.1/api/v1/MasterAlertCustomMessageTbl'
+  constructor(
+    private http: HttpClient,
+    public LinkService: LinkService,
+  ) { }
 
-  constructor(private http: HttpClient) { }
+  readonly ROOT_URL = this.LinkService.ROOT_URL + 'MasterAlertCustomMessageTbl'
+
 
   public getAlerts() {
     return this.http.post(this.ROOT_URL + '/View', '')
