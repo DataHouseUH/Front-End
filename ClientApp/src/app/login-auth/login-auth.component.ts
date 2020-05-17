@@ -3,6 +3,7 @@ import {ChangeDetectorRef, Component} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {LoginAuthService} from '../login-auth/login-auth.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {UserTbl} from "../owner-form/owner-form";
 
 @Component({
   selector: 'app-login-auth',
@@ -27,10 +28,13 @@ export class LoginAuthComponent {
   }
   username: string[] = [];
   password: string[] = [];
+  records: UserTbl[] = [];
+  Status: number[] = [];
+  Error: string[] = [];
   createloginForm() {
     this.loginForm = this.formBuilder.group({
-      username: [this._LoginFormService.Username],
-      password: [this._LoginFormService.Password],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
   onSubmit() {
@@ -39,6 +43,16 @@ export class LoginAuthComponent {
     const password = this.loginForm.value.password;
     console.log(username);
     console.log(password);
+    this._LoginFormService.login(username, password).subscribe(data => {
+
+          this.router.navigate(['/alert']);
+
+
+      },
+      err => console.error(err)
+    );
+
+
   }
   //  currentUser: User;
 
