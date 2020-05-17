@@ -24,6 +24,7 @@
 
 <div fxlauout="column" class="container">
   <h2>Sign In</h2>
+
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
           <label for="username">Username or Email</label>
@@ -36,6 +37,9 @@
       <div class="form-group">
           <button class="btn btn-primary">Sign In</button>
       </div>
+    <div *ngIf="loginfail" class="alert alert-danger">
+      <p>username or password is not correct</p>
+    </div>
   </form>
 </div>
 </div>

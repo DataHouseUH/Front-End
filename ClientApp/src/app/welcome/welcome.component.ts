@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OwnerFormService } from '../owner-form/owner-form.service';
 
 @Component({
-  selector: 'app-welcome', 
+  selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
@@ -16,6 +16,10 @@ export class WelcomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const User = localStorage.getItem('currentUser');
+    if ( User === null) {
+      this.router.navigate(['/login']);
+    }
   }
 
   Start() {

@@ -16,7 +16,7 @@ import { IfPrequalComponent } from './if-prequal/if-prequal.component';
 import { NotPrequalComponent } from './not-prequal/not-prequal.component';
 import { FrontDisplayComponent } from './front-display/front-display.component';
 import { BackDisplayComponent } from './back-display/back-display.component';
-import { WelcomeComponent } from './welcome/welcome.component'
+import { WelcomeComponent } from './welcome/welcome.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -28,6 +28,7 @@ import { BackDisplayService } from './back-display/back-display.service';
 import { LinkService } from './link.service';
 
 import { LoginAuthComponent } from './login-auth/login-auth.component';
+import {LoginAuthService} from "./login-auth/login-auth.service";
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { LoginAuthComponent } from './login-auth/login-auth.component';
       { path: 'front', component: FrontDisplayComponent },
       { path: 'back', component: BackDisplayComponent },
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'login', component: LoginAuthComponent }
+      { path: 'login', component: LoginAuthComponent },
     ]),
     BrowserAnimationsModule,
     MaterialModule,
@@ -69,7 +70,7 @@ import { LoginAuthComponent } from './login-auth/login-auth.component';
     AlertListService,
     OwnerFormService,
     FrontDisplayService,
-    BackDisplayService,
+    LoginAuthService,
     LinkService
   ],
   bootstrap: [AppComponent]

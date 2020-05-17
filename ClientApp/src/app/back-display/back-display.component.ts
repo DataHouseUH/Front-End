@@ -3,6 +3,7 @@ import { BackDisplayService } from './back-display.service';
 import { CommonModule } from '@angular/common';
 import { BackDisplayTbl, AlertTbl } from './back-display';
 import { Time } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -15,8 +16,8 @@ export class BackDisplayComponent {
 
   items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
 
-  constructor(private _BackDisplayService: BackDisplayService) { for ( let i = 0; i < 10; i++) {this.table.push(i); } }
-
+  constructor(private _BackDisplayService: BackDisplayService, private route: ActivatedRoute,
+              private router: Router,) { for ( let i = 0; i < 10; i++) {this.table.push(i); } }
   displayedColumns: string[] = ['Last, First', 'Pet ID', 'Arrived', 'Inspected', 'Release'];
 
   data: BackDisplayTbl[];
@@ -36,6 +37,10 @@ export class BackDisplayComponent {
   outtablelist: number[] = [];
 
   ngOnInit() {
+    const User = localStorage.getItem('currentUser');
+    if ( User === null) {
+      this.router.navigate(['/login']);
+    }
     this.getBackDisplayItems();
     this.getAlertItems();
     this.HowManyLoops = setInterval(() => {

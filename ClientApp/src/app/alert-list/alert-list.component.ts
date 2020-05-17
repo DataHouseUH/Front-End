@@ -3,6 +3,7 @@ import { AlertListService } from './alert-list.service';
 import { data } from './alert-list';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alert-list',
@@ -12,10 +13,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class AlertListComponent implements OnInit {
 
+
   constructor(
     private _AlertListService: AlertListService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private route: ActivatedRoute,
+  private router: Router,
   ) { }
 
   error: string;
@@ -25,6 +29,10 @@ export class AlertListComponent implements OnInit {
   ID: number[] = [];
 
   ngOnInit() {
+    const User = localStorage.getItem('currentUser');
+    if ( User === null) {
+      this.router.navigate(['/login']);
+    }
     this.getAlertItems();
   }
 
