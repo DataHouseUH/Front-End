@@ -55,6 +55,10 @@ export class OwnerFormComponent {
   }
 
   ngOnInit() {
+    const User = localStorage.getItem('currentUser');
+    if ( User === null) {
+      this.router.navigate(['/login']);
+    }
     this.createContactForm();
   }
 
