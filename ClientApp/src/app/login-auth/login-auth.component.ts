@@ -14,7 +14,7 @@ import {UserTbl} from "../owner-form/owner-form";
 
 export class LoginAuthComponent {
   loginForm: FormGroup;
-  isSubmitted  =  false;
+  loginfail  =  false;
   constructor(
     private formBuilder: FormBuilder,
     private _LoginFormService: LoginAuthService,
@@ -45,9 +45,15 @@ export class LoginAuthComponent {
     console.log(password);
     this._LoginFormService.login(username, password).subscribe(data => {
         const user = localStorage.getItem('currentUser');
-       // if (user.isAdmin === true) {
-         this.router.navigate(['/alert']);
-      //  }
+        console.log(user);
+       //if (user.isAdmin === true) {
+      if( user !== null )
+         this.router.navigate(['/welcome']);
+      else {
+        this.loginfail = true;
+        console.log("username or password not correct");
+      }
+       // }
 
       },
       err => console.error(err)
