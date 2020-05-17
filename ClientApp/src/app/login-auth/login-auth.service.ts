@@ -20,7 +20,7 @@ export class LoginAuthService {
   }
 
   public login(_username, _password) {
-     return this.http.post<any>(`/users/authenticate`, { _username, _password })
+     return this.http.post<any>(`http://localhost/aqsownercheckin/auth/v1/login`, { _username, _password })
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
         if (user && user.status === 'success') {

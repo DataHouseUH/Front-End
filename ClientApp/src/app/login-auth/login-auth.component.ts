@@ -44,9 +44,10 @@ export class LoginAuthComponent {
     console.log(username);
     console.log(password);
     this._LoginFormService.login(username, password).subscribe(data => {
-
-          this.router.navigate(['/alert']);
-
+        const user = localStorage.getItem('currentUser');
+       // if (user.isAdmin === true) {
+        //  this.router.navigate(['/alert']);
+      //  }
 
       },
       err => console.error(err)
