@@ -8,8 +8,7 @@ import {UserTbl} from "../owner-form/owner-form";
 @Component({
   selector: 'app-login-auth',
   templateUrl: 'login-auth.component.html',
-  styleUrls: ['./login-auth.component.css'],
-  providers: [LoginAuthService]
+  styleUrls: ['./login-auth.component.css']
 })
 
 export class LoginAuthComponent {
@@ -41,14 +40,20 @@ export class LoginAuthComponent {
     event.preventDefault();
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-    console.log(username);
-    console.log(password);
     this._LoginFormService.login(username, password).subscribe(data => {
-        const user = localStorage.getItem('currentUser');
-        console.log(user);
-       //if (user.isAdmin === true) {
-      if( user !== null )
-         this.router.navigate(['/welcome']);
+      console.log(data);
+      if (data != null) {
+        this._LoginFormService.Is_Auth = data.isAdmin
+        // Regular user, goes to the Ipad Kiosk section
+        if (this._LoginFormService.Is_Auth === false) {
+          this.router.navigate(['/welcome']);
+          console.log(this._LoginFormService.Is_Auth)
+        }
+        else if (this._LoginFormService.Is_Auth === true) {
+          this.router.navigate(['/welcomeadmin'])
+          console.log(this._LoginFormService.Is_Auth)
+        }
+      }
       else {
         this.loginfail = true;
         console.log("username or password not correct");

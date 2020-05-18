@@ -10,12 +10,13 @@ export class BackDisplayService {
 
   constructor(
     private http: HttpClient,
-    public LinkService: LinkService,
+    public LinkService: LinkService
   ) { }
 
   readonly ROOT_URL = this.LinkService.ROOT_URL + 'BackDisplay'
 
   public getBackDisplay() {
+    console.log(this.ROOT_URL);
     return this.http.post(this.ROOT_URL + '/View', '')
       .pipe(map((data: any) => data.data),
         catchError(error => { return throwError('Its a Trap!') })

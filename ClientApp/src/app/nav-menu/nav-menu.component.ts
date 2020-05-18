@@ -12,20 +12,30 @@ import { Router } from '@angular/router';
 export class NavMenuComponent {
   isLogined = false;
   currentUser: User;
+  homepage = false;
   constructor(
     private router: Router,
     private authenticationService: LoginAuthService,
-  ) {}
-  ngOnInit() {const currentuser = localStorage.getItem('currentUser');
-    if ( currentuser !== null) {
+  ) { }
+
+  ngOnInit() {
+    if ( this.authenticationService.Is_Auth != null) {
       this.isLogined = true;
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    } }
+    }
+
+    if (this.authenticationService.Is_Auth === true) {
+      this.homepage = true;
+    }
+    else {
+      this.homepage = false;
+    }
+
+  }
 
   logout() {
     this.authenticationService.logout();
     this.isLogined = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
 

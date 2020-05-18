@@ -2,6 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {Component, AfterViewInit} from '@angular/core';
 import { FrontDisplayService } from './front-display.service';
 import {newArray} from "@angular/compiler/src/util";
+import { LoginAuthService } from '../login-auth/login-auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 /* Table that retreives data via HTTP */
 @Component({
@@ -23,7 +25,11 @@ export class FrontDisplayComponent implements AfterViewInit {
   table1: number[] = [];
   table2: number[] = [];
 
-  constructor(private _FrontDisplayService: FrontDisplayService) {
+  constructor(
+    private _FrontDisplayService: FrontDisplayService,
+    private _LoginAuthService: LoginAuthService,
+    private router: Router
+  ) {
     for ( let i = 0; i < 10; i++) {
           this.table1.push(i);
   }
@@ -36,6 +42,11 @@ export class FrontDisplayComponent implements AfterViewInit {
 
 
   ngOnInit() {
+    console.log(this._LoginAuthService.Is_Auth);
+    if (this._LoginAuthService.Is_Auth != true) {
+      this.router.navigate(['/']);
+    }
+
     this.getAlertItems();
     this.HowManyLoops = setInterval(() => {
       this.getAlertItems();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwnerFormService } from '../owner-form/owner-form.service';
+import { LoginAuthService } from '../login-auth/login-auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -13,12 +14,13 @@ export class WelcomeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public _OwnerFormService: OwnerFormService,
+    public _LoginAuthService: LoginAuthService
   ) { }
 
   ngOnInit(): void {
-    const User = localStorage.getItem('currentUser');
-    if ( User === null) {
-      this.router.navigate(['/login']);
+    console.log(this._LoginAuthService.Is_Auth);
+    if (this._LoginAuthService.Is_Auth == null) {
+      this.router.navigate(['/']);
     }
   }
 

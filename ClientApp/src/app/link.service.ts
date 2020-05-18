@@ -8,5 +8,5 @@ export class LinkService {
   // With the time constraint, we were unable to figure out how to do a WebConfigApp File to do this change.
   // Thus, when deploying, please check this URL to the respective root URL.
   readonly ROOT_URL = 'http://127.0.0.1/api/v1/'
-
+  readonly AUTH_URL = 'http://127.0.0.1/auth/v1/'
 }

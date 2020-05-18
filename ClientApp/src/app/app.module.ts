@@ -52,7 +52,7 @@ import {LoginAuthService} from "./login-auth/login-auth.service";
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: LoginAuthComponent, pathMatch: 'full' },
       { path: 'alert', component: AlertListComponent },
       { path: 'owner', component: OwnerFormComponent },
       { path: 'qualify', component: IfPrequalComponent },
@@ -60,7 +60,7 @@ import {LoginAuthService} from "./login-auth/login-auth.service";
       { path: 'front', component: FrontDisplayComponent },
       { path: 'back', component: BackDisplayComponent },
       { path: 'welcome', component: WelcomeComponent },
-      { path: 'login', component: LoginAuthComponent },
+      { path: 'welcomeadmin', component: HomeComponent },
     ]),
     BrowserAnimationsModule,
     MaterialModule,
@@ -71,7 +71,8 @@ import {LoginAuthService} from "./login-auth/login-auth.service";
     OwnerFormService,
     FrontDisplayService,
     LoginAuthService,
-    LinkService
+    LinkService,
+    BackDisplayService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,46 +2,36 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from './user';
+import { LinkService } from '../link.service';
+
+
 
 @Injectable()
 
 export class LoginAuthService {
 
-  readonly ROOT_URL = 'http://localhost/aqsownercheckin/auth/v1/'
+  constructor(
+    private http: HttpClient,
+    public LinkService: LinkService
+  ) {}
 
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
-
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
-  }
+  readonly ROOT_URL = this.LinkService.AUTH_URL + 'login'
 
   public login(_username, _password) {
-     return this.http.post<any>(`http://localhost/aqsownercheckin/auth/v1/login`, { username: _username, password: _password })
-      .pipe(map(user => {
-        // login successful if there's a jwt token in the response
-        if (user.status === 'success') {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          console.log('good');
-          localStorage.setItem('currentUser', JSON.stringify(user.data));
-          console.log(localStorage.getItem('currentUser'));
-          this.currentUserSubject.next(user);
-        }
-
-        return user;
-      }, catchError (error => { return throwError('Its a Trap!') })));
+    return this.http.post(this.ROOT_URL, {
+      username: _username,
+      password: _password
+    }).pipe(map((data: any) => data.data),
+      catchError(error => { return throwError('Its a Trap!') })
+    );
   }
   public logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
+    this.Is_Auth = null;
   }
 
-  UserID: number = 5;
-  Is_Auth: boolean = false;
+  UserID: number;
+  Is_Auth: boolean;
 
 
   Username: string;

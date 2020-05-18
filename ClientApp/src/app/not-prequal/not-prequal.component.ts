@@ -23,6 +23,11 @@ export class NotPrequalComponent implements OnInit {
     this.timer = 20;
     this.getConfirmationItems();
     this.startCountdown(this.timer);
+
+    const User = localStorage.getItem('currentUser');
+    if (User === null) {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnDestroy() {
