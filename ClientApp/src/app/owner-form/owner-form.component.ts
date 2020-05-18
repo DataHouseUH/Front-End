@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {AbstractControl} from "@angular/forms";
 import { UserTbl } from './owner-form';
+import { LoginAuthService } from '../login-auth/login-auth.service';
 
 const material = [
   MatInputModule
@@ -25,7 +26,8 @@ export class OwnerFormComponent {
     private route: ActivatedRoute,
     private router: Router,
     private changesDetector: ChangeDetectorRef,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _LoginAuthService: LoginAuthService
   ) {
     this.createContactForm();
 
@@ -55,9 +57,9 @@ export class OwnerFormComponent {
   }
 
   ngOnInit() {
-    const User = localStorage.getItem('currentUser');
-    if ( User === null) {
-      this.router.navigate(['/login']);
+    if (this._LoginAuthService.Is_Auth == null) {
+      console.log(this._LoginAuthService.Is_Auth);
+      this.router.navigate(['/']);
     }
     this.createContactForm();
   }

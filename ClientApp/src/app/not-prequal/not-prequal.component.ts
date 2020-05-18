@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwnerFormService } from '../owner-form/owner-form.service';
 import { FrontDisplayService } from '../front-display/front-display.service';
-
+import { LoginAuthService } from '../login-auth/login-auth.service';
 
 @Component({
   selector: 'app-not-prequal',
@@ -14,7 +14,8 @@ export class NotPrequalComponent implements OnInit {
   constructor(
     private router: Router,
     public _OwnerFormService: OwnerFormService,
-    public _FrontDisplayService: FrontDisplayService
+    public _FrontDisplayService: FrontDisplayService,
+    private _LoginAuthService: LoginAuthService
   ) { }
 
   timer: number = 0;
@@ -24,9 +25,9 @@ export class NotPrequalComponent implements OnInit {
     this.getConfirmationItems();
     this.startCountdown(this.timer);
 
-    const User = localStorage.getItem('currentUser');
-    if (User === null) {
-      this.router.navigate(['/login']);
+    if (this._LoginAuthService.Is_Auth == null) {
+      console.log(this._LoginAuthService.Is_Auth);
+      this.router.navigate(['/']);
     }
   }
 
